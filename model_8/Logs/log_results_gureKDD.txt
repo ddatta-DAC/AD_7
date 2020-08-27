@@ -1,0 +1,38 @@
+Log start :: 2020-08-26 17:12:04.030077
+2020-08-26 17:12:04.030278| Time stamp 1598476324.0302894
+gureKDD
+Log start :: 2020-08-26 17:12:57.888051
+2020-08-26 17:12:57.888243| Time stamp 1598476377.8882537
+gureKDD
+ Run 1: Mean: 0.706731 | Std 0.002352
+Log start :: 2020-08-26 17:55:45.815204
+2020-08-26 17:55:45.815410| Time stamp 1598478945.8154187
+gureKDD
+{'ae_latent_dimension': 8, 'encoder_FCN_to_latent': {'dims': [32, 16], 'activation': 'tanh'}, 'encoder_discrete_xform': None, 'encoder_real_xform': {'dims': None, 'activation': 'tanh'}, 'decoder_FC_from_latent': {'dims': [16, 32], 'activation': 'tanh'}, 'decoder_discrete_xform': {'protocol_type': {'dims': None, 'activation': 'tanh'}, 'service': {'dims': None, 'activation': 'tanh'}, 'flag': {'dims': None, 'activation': 'tanh'}, 'land': {'dims': None, 'activation': 'tanh'}, 'logged_in': {'dims': None, 'activation': 'tanh'}, 'is_guest_login': {'dims': None, 'activation': 'tanh'}}, 'decoder_real_xform': {'dims': None, 'activation': 'tanh'}, 'real_loss_func': 'smooth_l1', 'discrete_loss_func': 'categorical_crossentropy', 'burn_in_epochs': 25, 'phase_2_epochs': 10, 'phase_3_epochs': 25, 'batch_size': 256, 'LR': 0.0005, 'max_gamma': 10, 'fc_dropout': 0.1, 'ae_dropout': 0.2, 'anomaly_ratio': 0.1}
+ Run 1: Mean: 0.675896 | Std 0.001305
+{'ae_latent_dimension': 8, 'encoder_FCN_to_latent': {'dims': [32, 16], 'activation': 'tanh'}, 'encoder_discrete_xform': None, 'encoder_real_xform': {'dims': None, 'activation': 'tanh'}, 'decoder_FC_from_latent': {'dims': [16, 32], 'activation': 'tanh'}, 'decoder_discrete_xform': {'protocol_type': {'dims': None, 'activation': 'tanh'}, 'service': {'dims': None, 'activation': 'tanh'}, 'flag': {'dims': None, 'activation': 'tanh'}, 'land': {'dims': None, 'activation': 'tanh'}, 'logged_in': {'dims': None, 'activation': 'tanh'}, 'is_guest_login': {'dims': None, 'activation': 'tanh'}}, 'decoder_real_xform': {'dims': None, 'activation': 'tanh'}, 'real_loss_func': 'smooth_l1', 'discrete_loss_func': 'categorical_crossentropy', 'burn_in_epochs': 25, 'phase_2_epochs': 10, 'phase_3_epochs': 25, 'batch_size': 256, 'LR': 0.0005, 'max_gamma': 10, 'fc_dropout': 0.1, 'ae_dropout': 0.2, 'anomaly_ratio': 0.1}
+Log start :: 2020-08-26 18:37:20.975479
+2020-08-26 18:37:20.975666| Time stamp 1598481440.9756746
+gureKDD
+{'ae_latent_dimension': 8, 'encoder_FCN_to_latent': {'dims': [48, 24], 'activation': 'tanh'}, 'encoder_discrete_xform': None, 'encoder_real_xform': {'dims': None, 'activation': 'tanh'}, 'decoder_FC_from_latent': {'dims': [24, 48], 'activation': 'tanh'}, 'decoder_discrete_xform': {'protocol_type': {'dims': None, 'activation': 'tanh'}, 'service': {'dims': None, 'activation': 'tanh'}, 'flag': {'dims': None, 'activation': 'tanh'}, 'land': {'dims': None, 'activation': 'tanh'}, 'logged_in': {'dims': None, 'activation': 'tanh'}, 'is_guest_login': {'dims': None, 'activation': 'tanh'}}, 'decoder_real_xform': {'dims': None, 'activation': 'tanh'}, 'real_loss_func': 'smooth_l1', 'discrete_loss_func': 'categorical_crossentropy', 'burn_in_epochs': 25, 'phase_2_epochs': 10, 'phase_3_epochs': 25, 'batch_size': 256, 'LR': 0.0005, 'max_gamma': 10, 'fc_dropout': 0.1, 'ae_dropout': 0.2, 'anomaly_ratio': 0.1}
+ Run 1: Mean: 0.684060 | Std 0.000980
+{'ae_latent_dimension': 8, 'encoder_FCN_to_latent': {'dims': [48, 24], 'activation': 'tanh'}, 'encoder_discrete_xform': None, 'encoder_real_xform': {'dims': None, 'activation': 'tanh'}, 'decoder_FC_from_latent': {'dims': [24, 48], 'activation': 'tanh'}, 'decoder_discrete_xform': {'protocol_type': {'dims': None, 'activation': 'tanh'}, 'service': {'dims': None, 'activation': 'tanh'}, 'flag': {'dims': None, 'activation': 'tanh'}, 'land': {'dims': None, 'activation': 'tanh'}, 'logged_in': {'dims': None, 'activation': 'tanh'}, 'is_guest_login': {'dims': None, 'activation': 'tanh'}}, 'decoder_real_xform': {'dims': None, 'activation': 'tanh'}, 'real_loss_func': 'smooth_l1', 'discrete_loss_func': 'categorical_crossentropy', 'burn_in_epochs': 25, 'phase_2_epochs': 10, 'phase_3_epochs': 25, 'batch_size': 256, 'LR': 0.0005, 'max_gamma': 10, 'fc_dropout': 0.1, 'ae_dropout': 0.2, 'anomaly_ratio': 0.1}
+ Run 2: Mean: 0.678936 | Std 0.000660
+{'ae_latent_dimension': 8, 'encoder_FCN_to_latent': {'dims': [48, 24], 'activation': 'tanh'}, 'encoder_discrete_xform': None, 'encoder_real_xform': {'dims': None, 'activation': 'tanh'}, 'decoder_FC_from_latent': {'dims': [24, 48], 'activation': 'tanh'}, 'decoder_discrete_xform': {'protocol_type': {'dims': None, 'activation': 'tanh'}, 'service': {'dims': None, 'activation': 'tanh'}, 'flag': {'dims': None, 'activation': 'tanh'}, 'land': {'dims': None, 'activation': 'tanh'}, 'logged_in': {'dims': None, 'activation': 'tanh'}, 'is_guest_login': {'dims': None, 'activation': 'tanh'}}, 'decoder_real_xform': {'dims': None, 'activation': 'tanh'}, 'real_loss_func': 'smooth_l1', 'discrete_loss_func': 'categorical_crossentropy', 'burn_in_epochs': 25, 'phase_2_epochs': 10, 'phase_3_epochs': 25, 'batch_size': 256, 'LR': 0.0005, 'max_gamma': 10, 'fc_dropout': 0.1, 'ae_dropout': 0.2, 'anomaly_ratio': 0.1}
+ Run 3: Mean: 0.714610 | Std 0.001472
+{'ae_latent_dimension': 12, 'encoder_FCN_to_latent': {'dims': [48, 24], 'activation': 'tanh'}, 'encoder_discrete_xform': None, 'encoder_real_xform': {'dims': [16], 'activation': 'tanh'}, 'decoder_FC_from_latent': {'dims': [24, 48], 'activation': 'tanh'}, 'decoder_discrete_xform': {'protocol_type': {'dims': None, 'activation': 'tanh'}, 'service': {'dims': None, 'activation': 'tanh'}, 'flag': {'dims': None, 'activation': 'tanh'}, 'land': {'dims': None, 'activation': 'tanh'}, 'logged_in': {'dims': None, 'activation': 'tanh'}, 'is_guest_login': {'dims': None, 'activation': 'tanh'}}, 'decoder_real_xform': {'dims': None, 'activation': 'tanh'}, 'real_loss_func': 'smooth_l1', 'discrete_loss_func': 'categorical_crossentropy', 'burn_in_epochs': 25, 'phase_2_epochs': 10, 'phase_3_epochs': 25, 'batch_size': 256, 'LR': 0.0005, 'max_gamma': 10, 'fc_dropout': 0.1, 'ae_dropout': 0.2, 'anomaly_ratio': 0.1}
+Log start :: 2020-08-26 19:59:18.490155
+2020-08-26 19:59:18.490363| Time stamp 1598486358.4903736
+gureKDD
+ Run 1: Mean: 0.711500 | Std 0.001342
+ Run 2: Mean: 0.696241 | Std 0.001328
+ Run 3: Mean: 0.693047 | Std 0.002453
+ Run 4: Mean: 0.693312 | Std 0.002014
+ Run 5: Mean: 0.704443 | Std 0.001048
+ Run 6: Mean: 0.711654 | Std 0.000938
+ Run 7: Mean: 0.729610 | Std 0.001468
+ Run 8: Mean: 0.702647 | Std 0.002648
+ Run 9: Mean: 0.688476 | Std 0.002402
+ Run 10: Mean: 0.701859 | Std 0.003867
+Mean AuPR over  10 runs 0.703279 Std 0.011435
+ Details [0.7115001323271423, 0.6962414333164811, 0.6930467127673566, 0.6933120428522199, 0.7044429042415274, 0.711654305088552, 0.7296100895167962, 0.7026474504166631, 0.6884755993160409, 0.7018591724727565]

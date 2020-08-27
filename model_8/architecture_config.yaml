@@ -1,0 +1,279 @@
+kddcup:
+  ae_latent_dimension: 8
+  encoder_FCN_to_latent:
+    dims:
+      - 64
+      - 32
+    activation: 'tanh'
+
+  encoder_discrete_xform:
+    service:
+      dims:
+        - 8
+      activation: 'none'
+  encoder_real_xform:
+    dims:
+      - 16
+    activation: 'tanh'
+  decoder_FC_from_latent:
+    dims:
+        - 32
+        - 64
+    activation:  'tanh'
+  decoder_discrete_xform:
+    protocol_type:
+      dims: ~
+      activation: 'tanh'
+    service:
+      dims: ~
+      activation: 'tanh'
+    flag:
+      dims: ~
+      activation: 'tanh'
+    land:
+      dims: ~
+      activation: 'tanh'
+    logged_in:
+      dims: ~
+      activation: 'tanh'
+    is_guest_login:
+      dims: ~
+      activation: 'tanh'
+  decoder_real_xform:
+    dims: ~
+    activation: 'tanh'
+
+  real_loss_func: 'smooth_l1'
+  discrete_loss_func: 'categorical_crossentropy'
+  burn_in_epochs: 15
+  phase_2_epochs: 10
+  phase_3_epochs: 15
+  batch_size: 256
+  LR: 0.0005
+  max_gamma: 10
+  fc_dropout: 0.1
+  ae_dropout: 0.2
+  anomaly_ratio : 0.2
+
+nb15:
+  ae_latent_dimension: 8
+  encoder_FCN_to_latent:
+    dims:
+      - 48
+      - 24
+    activation: 'tanh'
+  encoder_discrete_xform:
+    proto:
+      dims:
+        - 16
+      activation: 'none'
+  encoder_real_xform:
+    dims:
+      - 16
+    activation: 'tanh'
+  decoder_FC_from_latent:
+    dims:
+        - 24
+        - 48
+    activation:  'tanh'
+  decoder_discrete_xform:
+    protocol_type:
+      dims: ~
+      activation: 'tanh'
+    service:
+      dims: ~
+      activation: 'tanh'
+    flag:
+      dims: ~
+      activation: 'tanh'
+    land:
+      dims: ~
+      activation: 'tanh'
+    logged_in:
+      dims: ~
+      activation: 'tanh'
+    is_guest_login:
+      dims: ~
+      activation: 'tanh'
+  decoder_real_xform:
+    dims: ~
+    activation: 'tanh'
+
+  real_loss_func: 'smooth_l1'
+  discrete_loss_func: 'categorical_crossentropy'
+  burn_in_epochs : 15
+  phase_2_epochs : 10
+  phase_3_epochs : 25
+  batch_size : 256
+  anomaly_ratio : 0.1
+  LR: 0.0005
+  max_gamma: 10
+  fc_dropout: 0.1
+  ae_dropout: 0.2
+
+nsl_kdd:
+  ae_latent_dimension: 8
+  encoder_FCN_to_latent:
+    dims:
+      - 32
+      - 16   
+    activation: 'tanh'
+
+  encoder_discrete_xform:
+    service:
+      dims:
+        - 8
+      activation: 'none'
+  encoder_real_xform:
+    dims:
+      - 16
+    activation: 'none'
+  decoder_FC_from_latent:
+    dims:
+      - 16
+      - 32
+    activation:  'tanh'
+  decoder_discrete_xform:
+    protocol_type:
+      dims: ~
+      activation: 'tanh'
+    service:
+      dims: ~
+      activation: 'tanh'
+    flag:
+      dims: ~
+      activation: 'tanh'
+    land:
+      dims: ~
+      activation: 'tanh'
+    logged_in:
+      dims: ~
+      activation: 'tanh'
+    is_guest_login:
+      dims: ~
+      activation: 'tanh'
+  decoder_real_xform:
+    dims: ~
+    activation: 'tanh'
+  real_loss_func: 'smooth_l1'
+  discrete_loss_func: 'categorical_crossentropy'
+  burn_in_epochs: 25
+  phase_2_epochs: 15
+  phase_3_epochs: 20
+  batch_size: 256
+  LR: 0.0005
+  max_gamma: 10
+  fc_dropout: 0.1
+  ae_dropout: 0.2
+  anomaly_ratio : 0.1
+  
+
+gureKDD:
+  ae_latent_dimension: 12
+  encoder_FCN_to_latent:
+    dims:
+      - 48
+      - 24
+    activation: 'tanh'
+  encoder_discrete_xform: ~
+  encoder_real_xform:
+    dims:
+      - 16
+    activation: 'tanh'
+  decoder_FC_from_latent:
+    dims:
+      - 24
+      - 48     
+    activation:  'tanh'
+  decoder_discrete_xform:
+    protocol_type:
+      dims: ~
+      activation: 'tanh'
+    service:
+      dims: ~
+      activation: 'tanh'
+    flag:
+      dims: ~
+      activation: 'tanh'
+    land:
+      dims: ~
+      activation: 'tanh'
+    logged_in:
+      dims: ~
+      activation: 'tanh'
+    is_guest_login:
+      dims: ~
+      activation: 'tanh'
+  decoder_real_xform:
+    dims: ~
+    activation: 'tanh'
+
+  real_loss_func: 'smooth_l1'
+  discrete_loss_func: 'categorical_crossentropy'
+  burn_in_epochs: 25
+  phase_2_epochs: 10
+  phase_3_epochs: 25
+  batch_size: 256
+  LR: 0.0005
+  max_gamma: 10
+  fc_dropout : 0.1
+  ae_dropout : 0.2
+  anomaly_ratio : 0.1
+  
+
+kddcup_neptune:
+  ae_latent_dimension: 8
+  encoder_FCN_to_latent:
+    dims:
+      - 64
+      - 32
+    activation: 'tanh'
+
+  encoder_discrete_xform:
+    service:
+      dims:
+        - 8
+      activation: 'none'
+  encoder_real_xform:
+    dims:
+      - 16
+    activation: 'tanh'
+  decoder_FC_from_latent:
+    dims:
+        - 32
+        - 64
+    activation:  'tanh'
+  decoder_discrete_xform:
+    protocol_type:
+      dims: ~
+      activation: 'tanh'
+    service:
+      dims: ~
+      activation: 'tanh'
+    flag:
+      dims: ~
+      activation: 'tanh'
+    land:
+      dims: ~
+      activation: 'tanh'
+    logged_in:
+      dims: ~
+      activation: 'tanh'
+    is_guest_login:
+      dims: ~
+      activation: 'tanh'
+  decoder_real_xform:
+    dims: ~
+    activation: 'tanh'
+
+  real_loss_func: 'smooth_l1'
+  discrete_loss_func: 'categorical_crossentropy'
+  burn_in_epochs: 15
+  phase_2_epochs: 10
+  phase_3_epochs: 20
+  batch_size: 256
+  LR: 0.0005
+  max_gamma: 10
+  fc_dropout : 0.1
+  ae_dropout : 0.2
+  anomaly_ratio : 0.1
