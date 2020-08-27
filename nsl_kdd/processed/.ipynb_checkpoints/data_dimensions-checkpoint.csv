@@ -1,0 +1,8 @@
+column,dimension
+protocol_type,3
+service,70
+flag,11
+land,2
+logged_in,2
+is_host_login,2
+is_guest_login,2
