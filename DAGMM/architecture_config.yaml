@@ -1,0 +1,112 @@
+kddcup:
+  encoder_layers:
+    activation: 'tanh'
+    layer_dims:
+      - 60
+      - 30
+      - 10
+  ae_latent_dimension: 1
+  decoder_layers:
+    activation: 'tanh'
+    layer_dims:
+      - 10
+      - 30
+      - 60
+  gmm:
+    num_components: 2
+    FC_layer:
+      dims:
+        - 10
+      activation: 'tanh'
+    FC_dropout: 0.5
+
+
+
+nb15:
+  encoder_layers:
+    activation: 'tanh'
+    layer_dims:
+      - 128
+      - 48
+      - 16
+  ae_latent_dimension: 1
+  decoder_layers:
+    activation: 'tanh'
+    layer_dims:
+      - 16
+      - 48
+      - 128
+  gmm:
+    num_components: 3
+    FC_layer:
+      dims:
+        - 10
+      activation: 'tanh'
+    FC_dropout: 0.5
+    
+kddcup_neptune:
+  encoder_layers:
+    activation: 'tanh'
+    layer_dims:
+      - 60
+      - 30
+      - 10
+  ae_latent_dimension: 1
+  decoder_layers:
+    activation: 'tanh'
+    layer_dims:
+      - 10
+      - 30
+      - 60
+  gmm:
+    num_components: 2
+    FC_layer:
+      dims:
+        - 10
+      activation: 'tanh'
+    FC_dropout: 0.5
+    
+nsl_kdd:
+  encoder_layers:
+    activation: 'tanh'
+    layer_dims:
+      - 60
+      - 30
+      - 10
+  ae_latent_dimension: 1
+  decoder_layers:
+    activation: 'tanh'
+    layer_dims:
+      - 10
+      - 30
+      - 60
+  gmm:
+    num_components: 2
+    FC_layer: 
+      dims:
+        - 10
+      activation: 'tanh'
+    FC_dropout: 0.5
+
+
+gureKDD:
+  encoder_layers:
+    activation: 'tanh'
+    layer_dims:
+      - 40
+      - 20
+      - 10
+  ae_latent_dimension: 1
+  decoder_layers:
+    activation: 'tanh'
+    layer_dims:
+      - 10
+      - 20
+      - 40
+  gmm:
+    num_components: 4
+    FC_layer:
+      dims:
+        - 8
+      activation: 'tanh'
+    FC_dropout: 0.5
