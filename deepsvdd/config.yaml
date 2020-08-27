@@ -1,0 +1,65 @@
+kddcup:
+  layer_dims:
+    - 64
+    - 32
+    - 16
+  anomaly_ratio : 0.2
+  num_anomaly_sets : 5
+  num_epochs: 100
+  ae_epochs: 250
+  batch_size : 256
+  warm_up_epochs: 20
+  LR : 0.001
+
+kddcup_neptune:
+  layer_dims:
+    - 64
+    - 32
+    - 16
+  anomaly_ratio: 0.2
+  num_anomaly_sets: 5
+  num_epochs: 100
+  ae_epochs: 250
+  batch_size : 256
+  warm_up_epochs: 25
+  LR : 0.001
+
+nb15:
+  layer_dims:
+    - 128
+    - 48
+    - 16
+  anomaly_ratio : 0.1
+  num_anomaly_sets : 5
+  num_epochs: 100
+  ae_epochs: 350
+  batch_size : 256
+  warm_up_epochs: 10
+  LR : 0.001
+
+
+nsl_kdd:
+  layer_dims:
+    - 64
+    - 32
+    - 16
+  anomaly_ratio : 0.1
+  num_anomaly_sets : 5
+  num_epochs: 100
+  ae_epochs: 350
+  batch_size : 256
+  warm_up_epochs: 20
+  LR : 0.001
+
+gureKDD:
+  layer_dims:
+    - 64
+    - 32
+    - 16
+  anomaly_ratio : 0.1
+  num_anomaly_sets : 5
+  num_epochs: 100
+  ae_epochs: 300
+  batch_size : 256
+  warm_up_epochs: 20
+  LR : 0.001
