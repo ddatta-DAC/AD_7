@@ -1,0 +1,76 @@
+Log start :: 2020-08-08 12:55:55.489824
+2020-08-08 12:55:55.489933| Time stamp 1596905755.4899385
+kddcup_neptune
+ Percentage of corruption 2 -- 20, step 2
+Log start :: 2020-08-08 14:40:49.639196
+2020-08-08 14:40:49.639372| Time stamp 1596912049.639381
+kddcup_neptune
+ Percentage of corruption 2 -- 20, step 2
+Log start :: 2020-08-08 14:44:34.030966
+2020-08-08 14:44:34.031142| Time stamp 1596912274.0311515
+kddcup_neptune
+ Percentage of corruption 2 -- 20, step 2
+Neg Samples  2: AUPR Mean: 0.997596 | Std 0.000517
+Neg Samples  4: AUPR Mean: 0.995110 | Std 0.000425
+Neg Samples  6: AUPR Mean: 0.997568 | Std 0.000465
+Neg Samples  8: AUPR Mean: 0.995476 | Std 0.000414
+Neg Samples  10: AUPR Mean: 0.990615 | Std 0.000869
+Neg Samples  12: AUPR Mean: 0.999830 | Std 0.000106
+Neg Samples  14: AUPR Mean: 0.994514 | Std 0.000375
+Neg Samples  16: AUPR Mean: 0.989593 | Std 0.000974
+Neg Samples  18: AUPR Mean: 0.997682 | Std 0.000461
+Neg Samples  20: AUPR Mean: 0.998050 | Std 0.000501
+Log start :: 2020-08-09 08:17:19.389523
+2020-08-09 08:17:19.389715| Time stamp 1596975439.3897228
+kddcup_neptune
+ Varying negative samples 2 -- 20, step 2
+Log start :: 2020-08-09 09:00:00.702905
+2020-08-09 09:00:00.703078| Time stamp 1596978000.703087
+kddcup_neptune
+ Varying negative samples 2 -- 20, step 2
+Neg Samples  2: AUPR Mean: 0.989767 
+Neg Samples  4: AUPR Mean: 0.995972 
+Neg Samples  6: AUPR Mean: 0.990714 
+Neg Samples  8: AUPR Mean: 0.997074 
+Neg Samples  10: AUPR Mean: 0.997031 
+Neg Samples  12: AUPR Mean: 0.993315 
+Neg Samples  14: AUPR Mean: 0.988990 
+Neg Samples  16: AUPR Mean: 0.996282 
+Neg Samples  18: AUPR Mean: 0.992294 
+Neg Samples  20: AUPR Mean: 0.991647 
+Log start :: 2020-08-14 10:23:25.026386
+2020-08-14 10:23:25.026601| Time stamp 1597415005.0266128
+kddcup_neptune
+ Varying negative samples 2 -- 20, step 2
+Neg Samples  2: AUPR Mean: 0.992106 
+Neg Samples  4: AUPR Mean: 0.992152 
+Neg Samples  6: AUPR Mean: 0.993003 
+Neg Samples  8: AUPR Mean: 0.993435 
+Neg Samples  10: AUPR Mean: 0.996137 
+Neg Samples  12: AUPR Mean: 0.994735 
+Neg Samples  14: AUPR Mean: 0.995187 
+Neg Samples  16: AUPR Mean: 0.990808 
+Log start :: 2020-08-15 23:17:23.584060
+2020-08-15 23:17:23.584217| Time stamp 1597547843.5842252
+kddcup_neptune
+ Varying negative samples 2 -- 20, step 2
+Run 1 : AUPR Mean : 0.996720 
+, 0.998897, 0.997993, 0.997596, 0.998162, 0.995732, 0.998500, 0.997993, 0.984170, 0.998812, 0.999349
+Run 2 : AUPR Mean : 0.998623 
+, 0.998472, 0.999010, 0.998925, 0.998614, 0.998869, 0.999010, 0.998699, 0.998218, 0.998586, 0.997822
+Run 3 : AUPR Mean : 0.998150 
+, 0.999237, 0.999010, 0.998246, 0.999209, 0.997483, 0.997370, 0.997935, 0.997596, 0.997879, 0.997539
+Run 4 : AUPR Mean : 0.997129 
+, 0.996858, 0.998276, 0.994827, 0.998304, 0.997058, 0.997907, 0.997653, 0.998107, 0.995361, 0.996945
+Run 5 : AUPR Mean : 0.997622 
+, 0.997852, 0.997823, 0.998643, 0.998585, 0.994827, 0.995417, 0.998473, 0.998389, 0.997767, 0.998444
+Neg Samples  2: AUPR Mean: 0.998263 Std: 0.000841
+Neg Samples  4: AUPR Mean: 0.998422 Std: 0.000501
+Neg Samples  6: AUPR Mean: 0.997647 Std: 0.001479
+Neg Samples  8: AUPR Mean: 0.998575 Std: 0.000360
+Neg Samples  10: AUPR Mean: 0.996794 Std: 0.001403
+Neg Samples  12: AUPR Mean: 0.997641 Std: 0.001241
+Neg Samples  14: AUPR Mean: 0.998151 Std: 0.000381
+Neg Samples  16: AUPR Mean: 0.995296 Std: 0.005569
+Neg Samples  18: AUPR Mean: 0.997681 Std: 0.001227
+Neg Samples  20: AUPR Mean: 0.998020 Std: 0.000821
