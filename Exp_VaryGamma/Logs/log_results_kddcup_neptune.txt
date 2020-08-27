@@ -1,0 +1,33 @@
+Log start :: 2020-08-09 16:36:00.877261
+2020-08-09 16:36:00.877424| Time stamp 1597005360.877432
+kddcup_neptune
+ Varying gamma 2 -- 20, step 2
+Log start :: 2020-08-09 17:07:40.137993
+2020-08-09 17:07:40.138192| Time stamp 1597007260.1382017
+kddcup_neptune
+ Varying gamma 2 -- 20, step 2
+Neg Samples  1: AUPR Mean: 0.990666 
+Log start :: 2020-08-09 17:30:55.184792
+2020-08-09 17:30:55.184907| Time stamp 1597008655.184913
+kddcup_neptune
+ Varying gamma 2 -- 20, step 2
+Gamma value  1: AUPR Mean: 0.994756 
+Gamma value  2: AUPR Mean: 0.995194 
+Gamma value  4: AUPR Mean: 0.995448 
+Gamma value  6: AUPR Mean: 0.997342 
+Gamma value  8: AUPR Mean: 0.988888 
+Log start :: 2020-08-09 19:10:31.427618
+2020-08-09 19:10:31.427787| Time stamp 1597014631.427797
+kddcup_neptune
+ Varying gamma 2 -- 20, step 2
+Gamma value  1: AUPR Mean: 0.998403 
+Gamma value  2: AUPR Mean: 0.996972 
+Gamma value  4: AUPR Mean: 0.996339 
+Gamma value  6: AUPR Mean: 0.995999 
+Gamma value  8: AUPR Mean: 0.996096 
+Gamma value  10: AUPR Mean: 0.997809 
+Gamma value  12: AUPR Mean: 0.998091 
+Gamma value  14: AUPR Mean: 0.998699 
+Gamma value  16: AUPR Mean: 0.999322 
+Gamma value  18: AUPR Mean: 0.997922 
+Gamma value  20: AUPR Mean: 0.997667 
