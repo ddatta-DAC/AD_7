@@ -1,0 +1,9 @@
+column,dimension
+protocol_type,3
+service,23
+flag,12
+land,2
+logged_in,2
+root_shell,2
+is_hot_login,2
+is_guest_login,2
