@@ -27,9 +27,9 @@ try:
 except:
     from .data_fetcher import data_fetcher
 try:
-    from model_7.model import model_6_v2_container as Model
+    from model_9.model import model_9_container as Model
 except:
-    from .model_7.model import model_6_v2_container as Model
+    from .model_9.model import model_9_container as Model
 
 try:
     from model_6 import utils as utils
@@ -57,8 +57,6 @@ def execute_run(
     anomaly_ratio = -1
     ae_model = None
 
-
-
     burn_in_epochs = config['burn_in_epochs']
     phase_2_epochs = config['phase_2_epochs']
     phase_3_epochs = config['phase_3_epochs']
@@ -69,8 +67,6 @@ def execute_run(
     LR = config['LR']
     if max_gamma is None:
         max_gamma = config['max_gamma']
-
-
 
     # ===============
     # 1. Train with noise
@@ -216,7 +212,7 @@ parser.add_argument(
 parser.add_argument(
     '--max_gamma',
     type=int,
-    default=1,
+    default=10,
     help='Max gamma'
 )
 
@@ -224,7 +220,8 @@ parser.add_argument(
 args = parser.parse_args()
 DATA_SET = args.DATA_SET
 num_runs = args.num_runs
-max_gamma = args.max_gamma
+max_gamma = None
+
 num_neg_samples = args.num_neg_samples
 LOG_FILE = 'log_results_{}.txt'.format(DATA_SET)
 LOGGER = utils.get_logger(LOG_FILE)
@@ -250,7 +247,6 @@ for n in range(1,num_runs+1):
     if num_neg_samples is not None:
         neg = neg[:, :num_neg_samples, :]
 
-
     mean_aupr1, std = execute_run(
         DATA_SET,
         pos,
@@ -272,6 +268,7 @@ for n in range(1,num_runs+1):
     )
     results.append([mean_aupr1,mean_aupr2])
     LOGGER.info(' Run {}: auPR with noise : {:4f} | without noise {:4f} '.format(n+1, mean_aupr1, mean_aupr2))
+
 results = np.array(results)
 print('Details: ', results)
 mean_N = np.mean(results[:,0])

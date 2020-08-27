@@ -45,7 +45,7 @@ kddcup:
 
   real_loss_func: 'smooth_l1'
   discrete_loss_func: 'categorical_crossentropy'
-  burn_in_epochs: 15
+  burn_in_epochs: 50
   phase_2_epochs: 10
   phase_3_epochs: 15
   batch_size: 256
@@ -101,7 +101,7 @@ nb15:
 
   real_loss_func: 'smooth_l1'
   discrete_loss_func: 'categorical_crossentropy'
-  burn_in_epochs : 15
+  burn_in_epochs : 50
   phase_2_epochs : 10
   phase_3_epochs : 25
   batch_size : 256
@@ -157,7 +157,7 @@ nsl_kdd:
     activation: 'tanh'
   real_loss_func: 'smooth_l1'
   discrete_loss_func: 'categorical_crossentropy'
-  burn_in_epochs: 15
+  burn_in_epochs: 50
   phase_2_epochs: 15
   phase_3_epochs: 20
   batch_size: 256
@@ -169,24 +169,21 @@ nsl_kdd:
   
 
 gureKDD:
-  ae_latent_dimension: 10
+  ae_latent_dimension: 12
   encoder_FCN_to_latent:
     dims:
-      - 40
-      - 32
-      - 16
+      - 48
+      - 24
     activation: 'tanh'
-
   encoder_discrete_xform: ~
   encoder_real_xform:
     dims:
-      - 8
+      - 16
     activation: 'tanh'
   decoder_FC_from_latent:
     dims:
-        - 16
-        - 32
-           
+      - 24
+      - 48
     activation:  'tanh'
   decoder_discrete_xform:
     protocol_type:
@@ -213,7 +210,7 @@ gureKDD:
 
   real_loss_func: 'smooth_l1'
   discrete_loss_func: 'categorical_crossentropy'
-  burn_in_epochs: 15
+  burn_in_epochs: 50
   phase_2_epochs: 10
   phase_3_epochs: 25
   batch_size: 256
@@ -222,9 +219,6 @@ gureKDD:
   fc_dropout : 0.1
   ae_dropout : 0.2
   anomaly_ratio : 0.1
-
-
-
   
 
 kddcup_neptune:
@@ -274,7 +268,7 @@ kddcup_neptune:
 
   real_loss_func: 'smooth_l1'
   discrete_loss_func: 'categorical_crossentropy'
-  burn_in_epochs: 15
+  burn_in_epochs: 50
   phase_2_epochs: 10
   phase_3_epochs: 20
   batch_size: 256
