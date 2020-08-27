@@ -1,0 +1,16 @@
+Log start :: 2020-08-10 00:37:50.947349
+2020-08-10 00:37:50.947842| Time stamp 1597034270.9478672
+nsl_kdd
+ Varying Noise :: 1 -- 10, step 1
+Log start :: 2020-08-10 00:41:49.567242
+2020-08-10 00:41:49.567424| Time stamp 1597034509.5674329
+nsl_kdd
+ Varying Noise :: 2 -- 10, step 1
+Log start :: 2020-08-10 08:06:38.352353
+2020-08-10 08:06:38.352489| Time stamp 1597061198.352495
+nsl_kdd
+ Varying Noise :: 2 -- 10, step 1
+Log start :: 2020-08-10 08:29:25.508752
+2020-08-10 08:29:25.508881| Time stamp 1597062565.5088863
+nsl_kdd
+ Varying Noise :: 2 -- 10, step 1

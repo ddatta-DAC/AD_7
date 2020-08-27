@@ -1,0 +1,44 @@
+Log start :: 2020-08-10 00:37:53.849506
+2020-08-10 00:37:53.849714| Time stamp 1597034273.8497233
+gureKDD
+ Varying Noise :: 1 -- 10, step 1
+Log start :: 2020-08-10 00:41:46.836683
+2020-08-10 00:41:46.836825| Time stamp 1597034506.8368306
+gureKDD
+ Varying Noise :: 2 -- 10, step 1
+Log start :: 2020-08-10 08:06:47.821635
+2020-08-10 08:06:47.821757| Time stamp 1597061207.8217635
+gureKDD
+ Varying Noise :: 2 -- 10, step 1
+Log start :: 2020-08-10 08:29:33.576546
+2020-08-10 08:29:33.576663| Time stamp 1597062573.576669
+gureKDD
+ Varying Noise :: 2 -- 10, step 1
+Negative samples 2: AUPR Mean : Without noise 0.688936 ; With noise 0.703062
+Negative samples 3: AUPR Mean : Without noise 0.692190 ; With noise 0.675351
+Negative samples 4: AUPR Mean : Without noise 0.722997 ; With noise 0.703874
+Negative samples 5: AUPR Mean : Without noise 0.682112 ; With noise 0.706167
+Negative samples 6: AUPR Mean : Without noise 0.695752 ; With noise 0.709982
+Log start :: 2020-08-12 13:45:56.572498
+2020-08-12 13:45:56.572666| Time stamp 1597254356.5726728
+gureKDD
+Log start :: 2020-08-12 15:16:01.017490
+2020-08-12 15:16:01.017675| Time stamp 1597259761.0176818
+gureKDD
+ Run 2: auPR with noise : 0.724853 | without noise 0.727572 
+ Run 3: auPR with noise : 0.685387 | without noise 0.680036 
+ Run 4: auPR with noise : 0.729859 | without noise 0.678442 
+Log start :: 2020-08-12 16:32:03.221433
+2020-08-12 16:32:03.221668| Time stamp 1597264323.2216759
+gureKDD
+ Run 2: auPR with noise : 0.700255 | without noise 0.726787 
+ Run 3: auPR with noise : 0.721741 | without noise 0.686614 
+ Run 4: auPR with noise : 0.715521 | without noise 0.667290 
+ Run 5: auPR with noise : 0.714793 | without noise 0.689917 
+ Run 6: auPR with noise : 0.722680 | without noise 0.713399 
+ Run 7: auPR with noise : 0.695743 | without noise 0.727025 
+ Run 8: auPR with noise : 0.692438 | without noise 0.713635 
+ Run 9: auPR with noise : 0.735671 | without noise 0.691372 
+ Run 10: auPR with noise : 0.735446 | without noise 0.713445 
+ Run 11: auPR with noise : 0.743283 | without noise 0.701041 
+Mean AuPR over  10 runs with noise 0.717757 without noise Std 0.703053

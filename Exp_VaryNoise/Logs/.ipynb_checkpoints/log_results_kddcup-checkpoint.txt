@@ -1,0 +1,21 @@
+Log start :: 2020-08-10 00:37:16.556055
+2020-08-10 00:37:16.556195| Time stamp 1597034236.5562015
+kddcup
+ Varying Noise :: 1 -- 10, step 1
+Log start :: 2020-08-10 00:41:44.845533
+2020-08-10 00:41:44.845666| Time stamp 1597034504.8456721
+kddcup
+ Varying Noise :: 2 -- 10, step 1
+Log start :: 2020-08-10 08:06:29.002333
+2020-08-10 08:06:29.002448| Time stamp 1597061189.0024543
+kddcup
+ Varying Noise :: 2 -- 10, step 1
+Log start :: 2020-08-10 08:24:11.577803
+2020-08-10 08:24:11.577947| Time stamp 1597062251.5779557
+kddcup
+ Varying Noise :: 2 -- 10, step 1
+Log start :: 2020-08-10 08:29:13.983479
+2020-08-10 08:29:13.983646| Time stamp 1597062553.9836683
+kddcup
+ Varying Noise :: 2 -- 10, step 1
+Negative samples 2: AUPR Mean : Without noise 0.971914 ; With noise 0.951490

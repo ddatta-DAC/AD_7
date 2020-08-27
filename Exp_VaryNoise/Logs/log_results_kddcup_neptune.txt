@@ -1,0 +1,40 @@
+Log start :: 2020-08-10 00:37:56.525440
+2020-08-10 00:37:56.525682| Time stamp 1597034276.5256898
+kddcup_neptune
+ Varying Noise :: 1 -- 10, step 1
+Log start :: 2020-08-10 00:41:54.566203
+2020-08-10 00:41:54.566469| Time stamp 1597034514.566476
+kddcup_neptune
+ Varying Noise :: 2 -- 10, step 1
+Log start :: 2020-08-10 08:06:53.858793
+2020-08-10 08:06:53.858914| Time stamp 1597061213.8589199
+kddcup_neptune
+ Varying Noise :: 2 -- 10, step 1
+Log start :: 2020-08-10 08:29:38.708657
+2020-08-10 08:29:38.708830| Time stamp 1597062578.7088354
+kddcup_neptune
+ Varying Noise :: 2 -- 10, step 1
+Negative samples 2: AUPR Mean : Without noise 0.996975 ; With noise 0.992099
+Negative samples 3: AUPR Mean : Without noise 0.995363 ; With noise 0.986502
+Negative samples 4: AUPR Mean : Without noise 0.996310 ; With noise 0.994276
+Negative samples 5: AUPR Mean : Without noise 0.996989 ; With noise 0.985513
+Negative samples 6: AUPR Mean : Without noise 0.993100 ; With noise 0.997046
+Negative samples 7: AUPR Mean : Without noise 0.995320 ; With noise 0.993187
+Negative samples 8: AUPR Mean : Without noise 0.996932 ; With noise 0.997031
+Log start :: 2020-08-12 13:45:37.387634
+2020-08-12 13:45:37.387806| Time stamp 1597254337.3878152
+kddcup_neptune
+Log start :: 2020-08-12 15:15:53.406304
+2020-08-12 15:15:53.406453| Time stamp 1597259753.4064593
+kddcup_neptune
+ Run 2: auPR with noise : 0.986997 | without noise 0.984566 
+ Run 3: auPR with noise : 0.998387 | without noise 0.986403 
+ Run 4: auPR with noise : 0.998982 | without noise 0.984198 
+ Run 5: auPR with noise : 0.996690 | without noise 0.997907 
+ Run 6: auPR with noise : 0.997255 | without noise 0.996804 
+ Run 7: auPR with noise : 0.998389 | without noise 0.998926 
+ Run 8: auPR with noise : 0.998897 | without noise 0.998954 
+ Run 9: auPR with noise : 0.998445 | without noise 0.998557 
+ Run 10: auPR with noise : 0.994488 | without noise 0.998756 
+ Run 11: auPR with noise : 0.997736 | without noise 0.998160 
+Mean AuPR over  10 runs with noise 0.996627 without noise Std 0.994323

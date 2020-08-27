@@ -1,0 +1,17 @@
+Log start :: 2020-08-10 00:37:56.525440
+2020-08-10 00:37:56.525682| Time stamp 1597034276.5256898
+kddcup_neptune
+ Varying Noise :: 1 -- 10, step 1
+Log start :: 2020-08-10 00:41:54.566203
+2020-08-10 00:41:54.566469| Time stamp 1597034514.566476
+kddcup_neptune
+ Varying Noise :: 2 -- 10, step 1
+Log start :: 2020-08-10 08:06:53.858793
+2020-08-10 08:06:53.858914| Time stamp 1597061213.8589199
+kddcup_neptune
+ Varying Noise :: 2 -- 10, step 1
+Log start :: 2020-08-10 08:29:38.708657
+2020-08-10 08:29:38.708830| Time stamp 1597062578.7088354
+kddcup_neptune
+ Varying Noise :: 2 -- 10, step 1
+Negative samples 2: AUPR Mean : Without noise 0.996975 ; With noise 0.992099
