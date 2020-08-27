@@ -27,9 +27,9 @@ try:
 except:
     from .data_fetcher import data_fetcher
 try:
-    from model import model_6_v2_container as Model
+    from model import model_9_container as Model
 except:
-    from .model import model_6_v2_container as Model
+    from .model import model_9_container as Model
 
 try:
     from model_6 import utils as utils

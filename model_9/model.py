@@ -324,7 +324,7 @@ class AE_loss_module(nn.Module):
         return batch_loss, loss_md
 
 
-class model_6_v2(nn.Module):
+class model_9(nn.Module):
     def __init__(
             self,
             device,
@@ -336,7 +336,7 @@ class model_6_v2(nn.Module):
             fc_dropout,
             include_noise = True
     ):
-        super(model_6_v2, self).__init__()
+        super(model_9, self).__init__()
         self.device = device
         self.latent_dim = latent_dim
         self.ae_module = AE(
@@ -430,7 +430,7 @@ class model_6_v2(nn.Module):
 # Main class
 # ====================================================
 
-class model_6_v2_container():
+class model_9_container():
     def __init__(
             self,
             data_set,
@@ -469,7 +469,7 @@ class model_6_v2_container():
         chkpt_path.mkdir(exist_ok=True, parents=True)
         print('Sacving checkpoints to :: ',  self.chkpt_folder)
 
-        self.network_module = model_6_v2(
+        self.network_module = model_9(
             device,
             latent_dim,
             encoder_structure_config,
