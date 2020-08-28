@@ -264,6 +264,10 @@ class AE_loss_module(nn.Module):
         x_true = x_true.to(self.device)
         x_pred = x_pred.to(self.device)
         real_dims = self.real_dims
+        mse = F.mse_loss(x_true, x_pred, reduction='none')
+        # mse = torch.sum(mse, dim=1, keepdim=False)
+        return mse
+
         # =====================================
         x_true_split = torch.split(
             x_true,
@@ -352,10 +356,16 @@ class model_FAER(nn.Module):
         # ---------------
         # Calculate reconstruction loss
         # ---------------
-        _, recons_loss = self.ae_loss_module(
+        recons_loss = self.ae_loss_module(
             x_true,
             x_pred
             )
+        recons_loss = torch.sum(
+            recons_loss,
+            dim=1,
+            keepdim=False
+        ).to(self.device)
+
         return recons_loss
 
 
@@ -371,7 +381,7 @@ class model_FAER(nn.Module):
         if self.mode == 'train':
             # Return the per sample loss
             x_recon, z = self.ae_module(x)
-            _, loss_md = self.ae_loss_module(
+            loss_md = self.ae_loss_module(
                 x_true=x,
                 x_pred=x_recon
             )
