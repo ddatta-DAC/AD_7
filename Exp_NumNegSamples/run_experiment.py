@@ -2,7 +2,6 @@ import sys
 import os
 import pandas as pd
 import numpy as np
-
 sys.path.append('./..')
 sys.path.append('./../..')
 import torch
@@ -28,9 +27,9 @@ try:
 except:
     from .data_fetcher import data_fetcher
 try:
-    from model_7.model import model_6_v2_container as Model
+    from model_9.model import model_9_container as Model
 except:
-    from .model_7.model import model_6_v2_container as Model
+    from .model_9.model import model_9_container as Model
 
 try:
     from model_6 import utils as utils
@@ -279,7 +278,6 @@ for nr in range(num_runs):
             config
         )
         runs_aupr.append(_mean_aupr)
-
 
     _mean = np.mean(runs_aupr)
     LOGGER.info('Run {} : AUPR Mean : {:4f} '.format(nr+1 , _mean))
