@@ -43,3 +43,26 @@ kddcup
  Run 10: auPR with noise : 0.971766 | without noise 0.968797 
  Run 11: auPR with noise : 0.971301 | without noise 0.973272 
 Mean AuPR over  10 runs with noise 0.976339 without noise Std 0.972301
+Log start :: 2020-08-27 15:59:17.714720
+2020-08-27 15:59:17.714827| Time stamp 1598558357.7148325
+kddcup
+Log start :: 2020-08-27 16:04:04.339815
+2020-08-27 16:04:04.339959| Time stamp 1598558644.3399649
+kddcup
+ Run 2: auPR with noise : 0.972073 | without noise 0.971646 
+ Run 3: auPR with noise : 0.896341 | without noise 0.951382 
+ Run 4: auPR with noise : 0.994145 | without noise 0.973272 
+Log start :: 2020-08-27 17:00:48.159599
+2020-08-27 17:00:48.159772| Time stamp 1598562048.1597834
+kddcup
+ Run 1: auPR with noise : 0.971183 | without noise 0.624724 
+ Run 2: auPR with noise : 0.971014 | without noise 0.964942 
+ Run 3: auPR with noise : 0.972136 | without noise 0.955257 
+ Run 4: auPR with noise : 0.972303 | without noise 0.859384 
+ Run 5: auPR with noise : 0.975624 | without noise 0.974046 
+ Run 6: auPR with noise : 0.670603 | without noise 0.972501 
+ Run 7: auPR with noise : 0.971237 | without noise 0.972165 
+ Run 8: auPR with noise : 0.949381 | without noise 0.970452 
+ Run 9: auPR with noise : 0.973565 | without noise 0.972449 
+ Run 10: auPR with noise : 0.972576 | without noise 0.885374 
+Mean AuPR over  10 runs with noise 0.939962 without noise Std 0.915129

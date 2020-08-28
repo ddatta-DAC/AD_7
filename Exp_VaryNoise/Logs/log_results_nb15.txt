@@ -91,3 +91,20 @@ nb15
  Run 10: auPR with noise : 0.789840 | without noise 0.789721 
  Run 11: auPR with noise : 0.774907 | without noise 0.792796 
 Mean AuPR over  10 runs with noise 0.783822 without noise Std 0.733356
+Log start :: 2020-08-27 15:59:39.842247
+2020-08-27 15:59:39.842436| Time stamp 1598558379.8424468
+nb15
+Log start :: 2020-08-27 16:03:56.891649
+2020-08-27 16:03:56.891777| Time stamp 1598558636.8917828
+nb15
+ Run 2: auPR with noise : 0.784642 | without noise 0.788220 
+ Run 3: auPR with noise : 0.787947 | without noise 0.788525 
+ Run 4: auPR with noise : 0.789709 | without noise 0.788025 
+ Run 5: auPR with noise : 0.787289 | without noise 0.786356 
+ Run 6: auPR with noise : 0.786564 | without noise 0.786442 
+ Run 7: auPR with noise : 0.795749 | without noise 0.793262 
+ Run 8: auPR with noise : 0.788917 | without noise 0.796264 
+ Run 9: auPR with noise : 0.791025 | without noise 0.786957 
+ Run 10: auPR with noise : 0.781071 | without noise 0.785127 
+ Run 11: auPR with noise : 0.781321 | without noise 0.788031 
+Mean AuPR over  10 runs with noise 0.787424 without noise Std 0.788721

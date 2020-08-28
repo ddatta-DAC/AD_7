@@ -38,3 +38,20 @@ kddcup_neptune
  Run 10: auPR with noise : 0.994488 | without noise 0.998756 
  Run 11: auPR with noise : 0.997736 | without noise 0.998160 
 Mean AuPR over  10 runs with noise 0.996627 without noise Std 0.994323
+Log start :: 2020-08-27 15:59:25.433786
+2020-08-27 15:59:25.433907| Time stamp 1598558365.4339128
+kddcup_neptune
+Log start :: 2020-08-27 16:04:00.599712
+2020-08-27 16:04:00.599851| Time stamp 1598558640.5998576
+kddcup_neptune
+ Run 2: auPR with noise : 0.995983 | without noise 0.997794 
+ Run 3: auPR with noise : 0.998191 | without noise 0.998756 
+ Run 4: auPR with noise : 0.998445 | without noise 0.998134 
+ Run 5: auPR with noise : 0.997710 | without noise 0.994686 
+ Run 6: auPR with noise : 0.996438 | without noise 0.997004 
+ Run 7: auPR with noise : 0.995873 | without noise 0.998219 
+ Run 8: auPR with noise : 0.998219 | without noise 0.997653 
+ Run 9: auPR with noise : 0.998359 | without noise 0.996522 
+ Run 10: auPR with noise : 0.998275 | without noise 0.998529 
+ Run 11: auPR with noise : 0.995104 | without noise 0.997200 
+Mean AuPR over  10 runs with noise 0.997260 without noise Std 0.997450

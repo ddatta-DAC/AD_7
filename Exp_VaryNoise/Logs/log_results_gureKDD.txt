@@ -42,3 +42,17 @@ gureKDD
  Run 10: auPR with noise : 0.735446 | without noise 0.713445 
  Run 11: auPR with noise : 0.743283 | without noise 0.701041 
 Mean AuPR over  10 runs with noise 0.717757 without noise Std 0.703053
+Log start :: 2020-08-27 16:00:14.866120
+2020-08-27 16:00:14.866257| Time stamp 1598558414.8662636
+gureKDD
+Log start :: 2020-08-27 16:03:52.828006
+2020-08-27 16:03:52.828121| Time stamp 1598558632.8281279
+gureKDD
+ Run 2: auPR with noise : 0.812676 | without noise 0.717797 
+ Run 3: auPR with noise : 0.789719 | without noise 0.690550 
+ Run 4: auPR with noise : 0.715306 | without noise 0.704358 
+ Run 5: auPR with noise : 0.818322 | without noise 0.677595 
+ Run 6: auPR with noise : 0.727258 | without noise 0.730718 
+ Run 7: auPR with noise : 0.799194 | without noise 0.714108 
+ Run 8: auPR with noise : 0.818593 | without noise 0.662266 
+ Run 9: auPR with noise : 0.717183 | without noise 0.702588 
