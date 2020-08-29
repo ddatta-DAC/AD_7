@@ -1,5 +1,5 @@
 kddcup:
-  ae_latent_dimension: 8
+  ae_latent_dimension: 16
   encoder_FCN_to_latent:
     dims:
       - 64
@@ -57,7 +57,7 @@ kddcup:
   epochs: 50
 
 nb15:
-  ae_latent_dimension: 8
+  ae_latent_dimension: 12
   encoder_FCN_to_latent:
     dims:
       - 48
@@ -114,7 +114,7 @@ nb15:
   epochs: 50
 
 nsl_kdd:
-  ae_latent_dimension: 8
+  ae_latent_dimension: 12
   encoder_FCN_to_latent:
     dims:
       - 32
@@ -224,7 +224,7 @@ gureKDD:
   epochs: 50
 
 kddcup_neptune:
-  ae_latent_dimension: 8
+  ae_latent_dimension: 16
   encoder_FCN_to_latent:
     dims:
       - 64
