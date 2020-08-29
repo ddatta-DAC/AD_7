@@ -47,7 +47,7 @@ kddcup:
   discrete_loss_func: 'categorical_crossentropy'
   burn_in_epochs: 50
   phase_2_epochs: 10
-  phase_3_epochs: 15
+  phase_3_epochs: 20
   batch_size: 256
   LR: 0.0005
   max_gamma: 10
@@ -105,7 +105,7 @@ nb15:
   phase_2_epochs : 10
   phase_3_epochs : 25
   batch_size : 256
-  anomaly_ratio : 0.1
+  anomaly_ratio : 0.125
   LR: 0.0005
   max_gamma: 10
   fc_dropout: 0.1
@@ -165,7 +165,7 @@ nsl_kdd:
   max_gamma: 10
   fc_dropout: 0.1
   ae_dropout: 0.2
-  anomaly_ratio : 0.1
+  anomaly_ratio : 0.125
   
 
 gureKDD:
@@ -218,7 +218,7 @@ gureKDD:
   max_gamma: 10
   fc_dropout : 0.1
   ae_dropout : 0.2
-  anomaly_ratio : 0.1
+  anomaly_ratio : 0.125
   
 
 kddcup_neptune:
@@ -276,4 +276,4 @@ kddcup_neptune:
   max_gamma: 10
   fc_dropout : 0.1
   ae_dropout : 0.2
-  anomaly_ratio : 0.1
+  anomaly_ratio : 0.2

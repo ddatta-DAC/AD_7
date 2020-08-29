@@ -69,3 +69,151 @@ Mean at Point 2 : Mean  0.969617  Std 0.007084
 Mean at Point 3 : Mean  0.971466  Std 0.006704
 Mean at Point 4 : Mean  0.973455  Std 0.007062
 Mean at Point 5 : Mean  0.974383  Std 0.006625
+Log start :: 2020-08-28 23:09:40.744965
+2020-08-28 23:09:40.745112| Time stamp 1598670580.7451181
+kddcup
+Log start :: 2020-08-28 23:15:24.245165
+2020-08-28 23:15:24.245284| Time stamp 1598670924.2452908
+kddcup
+Percentage of anomalies 2  AUC: 0.9583  
+Percentage of anomalies 4  AUC: 0.9637  
+Percentage of anomalies 6  AUC: 0.9684  
+Percentage of anomalies 8  AUC: 0.9691  
+Percentage of anomalies 10  AUC: 0.9707  
+ Run 1:[0.9583116788356273, 0.963708717318089, 0.9683916386038989, 0.9690808755020418, 0.9707365334084671]
+Percentage of anomalies 2  AUC: 0.3712  
+Percentage of anomalies 4  AUC: 0.4718  
+Percentage of anomalies 6  AUC: 0.5291  
+Percentage of anomalies 8  AUC: 0.5816  
+Percentage of anomalies 10  AUC: 0.6244  
+ Run 2:[0.3711631092454388, 0.4717903302888929, 0.529058632630684, 0.5815827501448001, 0.6244395665984368]
+Percentage of anomalies 2  AUC: 0.9548  
+Percentage of anomalies 4  AUC: 0.9655  
+Percentage of anomalies 6  AUC: 0.9670  
+Percentage of anomalies 8  AUC: 0.9707  
+Percentage of anomalies 10  AUC: 0.9728  
+ Run 3:[0.9548180270490099, 0.9654971602191808, 0.9669703290105014, 0.9707456984283644, 0.9728247900578225]
+Percentage of anomalies 2  AUC: 0.9571  
+Percentage of anomalies 4  AUC: 0.9683  
+Percentage of anomalies 6  AUC: 0.9659  
+Percentage of anomalies 8  AUC: 0.9684  
+Percentage of anomalies 10  AUC: 0.9699  
+ Run 4:[0.9571147979080517, 0.9682561519155867, 0.9659139317803972, 0.9683765799599029, 0.9699020896447297]
+Percentage of anomalies 2  AUC: 0.9711  
+Percentage of anomalies 4  AUC: 0.9738  
+Percentage of anomalies 6  AUC: 0.9761  
+Percentage of anomalies 8  AUC: 0.9788  
+Percentage of anomalies 10  AUC: 0.9808  
+ Run 5:[0.9711170937248258, 0.9738330239152994, 0.9760976268120639, 0.9787725283481745, 0.9808051876254645]
+Percentage of anomalies 2  AUC: 0.9254  
+Percentage of anomalies 4  AUC: 0.9162  
+Percentage of anomalies 6  AUC: 0.9178  
+Percentage of anomalies 8  AUC: 0.9242  
+Percentage of anomalies 10  AUC: 0.9278  
+ Run 6:[0.9253736315906508, 0.9162087441244031, 0.9177915084910225, 0.9242208747794948, 0.92779082962906]
+Percentage of anomalies 2  AUC: 0.9198  
+Percentage of anomalies 4  AUC: 0.9397  
+Percentage of anomalies 6  AUC: 0.9504  
+Percentage of anomalies 8  AUC: 0.9563  
+Percentage of anomalies 10  AUC: 0.9590  
+ Run 7:[0.9198443748103666, 0.9396543029433269, 0.9504193399043983, 0.9562954909344551, 0.9590487351620969]
+Percentage of anomalies 2  AUC: 0.9531  
+Percentage of anomalies 4  AUC: 0.9648  
+Percentage of anomalies 6  AUC: 0.9650  
+Percentage of anomalies 8  AUC: 0.9654  
+Percentage of anomalies 10  AUC: 0.9672  
+ Run 8:[0.9530997002040644, 0.9648056145574709, 0.9650384794176146, 0.9653970487659546, 0.9672224736380282]
+Percentage of anomalies 2  AUC: 0.9595  
+Percentage of anomalies 4  AUC: 0.9609  
+Percentage of anomalies 6  AUC: 0.9665  
+Percentage of anomalies 8  AUC: 0.9673  
+Percentage of anomalies 10  AUC: 0.9680  
+ Run 9:[0.9594768888522365, 0.9608648394358821, 0.9665066681336851, 0.9672988848801126, 0.9679545851464313]
+Percentage of anomalies 2  AUC: 0.9766  
+Percentage of anomalies 4  AUC: 0.9870  
+Percentage of anomalies 6  AUC: 0.9893  
+Percentage of anomalies 8  AUC: 0.9895  
+Percentage of anomalies 10  AUC: 0.9919  
+ Run 10:[0.9766435749602902, 0.9870186719674828, 0.9892909636169237, 0.9894829006368108, 0.9918878270450833]
+Mean at Point 1 : Mean  0.894696  Std 0.175323
+Mean at Point 2 : Mean  0.911164  Std 0.147610
+Mean at Point 3 : Mean  0.919548  Std 0.131362
+Mean at Point 4 : Mean  0.927125  Std 0.116301
+Mean at Point 5 : Mean  0.933261  Std 0.104131
+Log start :: 2020-08-29 08:45:17.228764
+2020-08-29 08:45:17.228907| Time stamp 1598705117.2289133
+kddcup
+Percentage of anomalies 2  AUC: 0.9478  
+Percentage of anomalies 4  AUC: 0.9626  
+Percentage of anomalies 6  AUC: 0.9662  
+Percentage of anomalies 8  AUC: 0.9673  
+Percentage of anomalies 10  AUC: 0.9720  
+ Run 1:[0.947836556575437, 0.9626360988834841, 0.9661611658669157, 0.9672723627422428, 0.9719938756968307]
+Log start :: 2020-08-29 08:59:13.989825
+2020-08-29 08:59:13.989958| Time stamp 1598705953.989964
+kddcup
+Percentage of anomalies 2  AUC: 0.9354  
+Percentage of anomalies 4  AUC: 0.9517  
+Percentage of anomalies 6  AUC: 0.9619  
+Percentage of anomalies 8  AUC: 0.9651  
+Percentage of anomalies 10  AUC: 0.9636  
+ Run 1:[0.9353909376881954, 0.951693582728277, 0.9619110776402461, 0.9650696537817227, 0.9635590411579791]
+Percentage of anomalies 2  AUC: 0.9574  
+Percentage of anomalies 4  AUC: 0.9700  
+Percentage of anomalies 6  AUC: 0.9734  
+Percentage of anomalies 8  AUC: 0.9759  
+Percentage of anomalies 10  AUC: 0.9726  
+ Run 2:[0.9574256039642168, 0.9700153179055642, 0.9734101842288346, 0.9759059370305123, 0.9726009590248301]
+Percentage of anomalies 2  AUC: 0.9849  
+Percentage of anomalies 4  AUC: 0.9891  
+Percentage of anomalies 6  AUC: 0.9915  
+Percentage of anomalies 8  AUC: 0.9902  
+Percentage of anomalies 10  AUC: 0.9908  
+ Run 3:[0.9849186799167535, 0.989121904157671, 0.9914779160319006, 0.9901946708260799, 0.990790977497748]
+Percentage of anomalies 2  AUC: 0.9673  
+Percentage of anomalies 4  AUC: 0.9668  
+Percentage of anomalies 6  AUC: 0.9648  
+Percentage of anomalies 8  AUC: 0.9692  
+Percentage of anomalies 10  AUC: 0.9677  
+ Run 4:[0.9672819310018285, 0.9667870379293435, 0.9647826301349444, 0.9692334654492064, 0.9676546917155949]
+Percentage of anomalies 2  AUC: 0.5518  
+Percentage of anomalies 4  AUC: 0.5985  
+Percentage of anomalies 6  AUC: 0.6235  
+Percentage of anomalies 8  AUC: 0.6368  
+Percentage of anomalies 10  AUC: 0.6416  
+ Run 5:[0.5517975211382007, 0.5985317545796099, 0.6235404316829634, 0.6367890623843093, 0.6416287462835377]
+Percentage of anomalies 2  AUC: 0.9865  
+Percentage of anomalies 4  AUC: 0.9883  
+Percentage of anomalies 6  AUC: 0.9882  
+Percentage of anomalies 8  AUC: 0.9907  
+Percentage of anomalies 10  AUC: 0.9901  
+ Run 6:[0.9864765446454858, 0.9882871652224056, 0.9881701506427155, 0.9907491569177761, 0.9901085287736567]
+Percentage of anomalies 2  AUC: 0.9445  
+Percentage of anomalies 4  AUC: 0.9584  
+Percentage of anomalies 6  AUC: 0.9644  
+Percentage of anomalies 8  AUC: 0.9683  
+Percentage of anomalies 10  AUC: 0.9704  
+ Run 7:[0.9444864522819871, 0.9583878569366782, 0.9643803325000149, 0.9683139357648619, 0.9703659611048041]
+Percentage of anomalies 2  AUC: 0.9856  
+Percentage of anomalies 4  AUC: 0.9902  
+Percentage of anomalies 6  AUC: 0.9940  
+Percentage of anomalies 8  AUC: 0.9933  
+Percentage of anomalies 10  AUC: 0.9923  
+ Run 8:[0.985593105461615, 0.9902442320730905, 0.9939917319599778, 0.9932796172811389, 0.9923279791052644]
+Percentage of anomalies 2  AUC: 0.9463  
+Percentage of anomalies 4  AUC: 0.9646  
+Percentage of anomalies 6  AUC: 0.9610  
+Percentage of anomalies 8  AUC: 0.9688  
+Percentage of anomalies 10  AUC: 0.9701  
+ Run 9:[0.946250904574329, 0.9645875955289726, 0.9609793137816696, 0.9688265143849446, 0.9700835538085972]
+Percentage of anomalies 2  AUC: 0.9556  
+Percentage of anomalies 4  AUC: 0.9599  
+Percentage of anomalies 6  AUC: 0.9700  
+Percentage of anomalies 8  AUC: 0.9693  
+Percentage of anomalies 10  AUC: 0.9706  
+ Run 10:[0.9556458836565384, 0.9599061741479227, 0.9700055534815968, 0.9692885878739557, 0.9705925046826089]
+Mean at Point 1 : Mean  0.921527  Std 0.124466
+Mean at Point 2 : Mean  0.933756  Std 0.112505
+Mean at Point 3 : Mean  0.939265  Std 0.105911
+Mean at Point 4 : Mean  0.942765  Std 0.102497
+Mean at Point 5 : Mean  0.942971  Std 0.100951

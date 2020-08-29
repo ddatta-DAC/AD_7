@@ -73,3 +73,81 @@ Mean at Point 2 : Mean  0.997600  Std 0.001520
 Mean at Point 3 : Mean  0.997879  Std 0.001292
 Mean at Point 4 : Mean  0.997990  Std 0.001108
 Mean at Point 5 : Mean  0.998076  Std 0.001167
+Log start :: 2020-08-28 23:09:40.745158
+2020-08-28 23:09:40.745282| Time stamp 1598670580.7452881
+kddcup_neptune
+Log start :: 2020-08-28 23:15:28.731434
+2020-08-28 23:15:28.731634| Time stamp 1598670928.7316399
+kddcup_neptune
+Percentage of anomalies 2  AUC: 0.9917  
+Percentage of anomalies 4  AUC: 0.9952  
+Percentage of anomalies 6  AUC: 0.9967  
+Percentage of anomalies 8  AUC: 0.9969  
+Log start :: 2020-08-29 01:05:03.936124
+2020-08-29 01:05:03.936288| Time stamp 1598677503.9362981
+kddcup_neptune
+Percentage of anomalies 2  AUC: 0.9963  
+Percentage of anomalies 4  AUC: 0.9964  
+Percentage of anomalies 6  AUC: 0.9966  
+Percentage of anomalies 8  AUC: 0.9956  
+Percentage of anomalies 10  AUC: 0.9950  
+ Run 1:[0.9962652044188877, 0.9964179059925589, 0.996564244158072, 0.9955578625659164, 0.9949621539668569]
+Percentage of anomalies 2  AUC: 0.9939  
+Percentage of anomalies 4  AUC: 0.9960  
+Percentage of anomalies 6  AUC: 0.9962  
+Percentage of anomalies 8  AUC: 0.9968  
+Percentage of anomalies 10  AUC: 0.9966  
+ Run 2:[0.9939398982488978, 0.9959709836501848, 0.9962453639495684, 0.9967864989920723, 0.9966390855541892]
+Percentage of anomalies 2  AUC: 0.9902  
+Percentage of anomalies 4  AUC: 0.9941  
+Percentage of anomalies 6  AUC: 0.9953  
+Percentage of anomalies 8  AUC: 0.9964  
+Percentage of anomalies 10  AUC: 0.9969  
+ Run 3:[0.99015850626656, 0.9941448015314899, 0.995294699467084, 0.9964255788346448, 0.996861663216519]
+Percentage of anomalies 2  AUC: 0.9955  
+Percentage of anomalies 4  AUC: 0.9978  
+Percentage of anomalies 6  AUC: 0.9983  
+Percentage of anomalies 8  AUC: 0.9988  
+Percentage of anomalies 10  AUC: 0.9987  
+ Run 4:[0.9954550304071302, 0.9977877154525902, 0.9983361748258585, 0.9987893964151608, 0.998682532242607]
+Percentage of anomalies 2  AUC: 0.9970  
+Percentage of anomalies 4  AUC: 0.9971  
+Percentage of anomalies 6  AUC: 0.9975  
+Percentage of anomalies 8  AUC: 0.9982  
+Percentage of anomalies 10  AUC: 0.9977  
+ Run 5:[0.9969816915236527, 0.9971027981401228, 0.9974503825919352, 0.9981610564790859, 0.9977044341035594]
+Percentage of anomalies 2  AUC: 0.9917  
+Percentage of anomalies 4  AUC: 0.9967  
+Percentage of anomalies 6  AUC: 0.9967  
+Percentage of anomalies 8  AUC: 0.9963  
+Percentage of anomalies 10  AUC: 0.9971  
+ Run 6:[0.9916813100658932, 0.9966597831529246, 0.9966756701222472, 0.9962615642655032, 0.9971154408811175]
+Percentage of anomalies 2  AUC: 0.9910  
+Percentage of anomalies 4  AUC: 0.9907  
+Percentage of anomalies 6  AUC: 0.9913  
+Percentage of anomalies 8  AUC: 0.9905  
+Percentage of anomalies 10  AUC: 0.9909  
+ Run 7:[0.9910199450003068, 0.9906780421459848, 0.9912905216696454, 0.9904534519788554, 0.9909285201248713]
+Percentage of anomalies 2  AUC: 0.9955  
+Percentage of anomalies 4  AUC: 0.9964  
+Percentage of anomalies 6  AUC: 0.9979  
+Percentage of anomalies 8  AUC: 0.9980  
+Percentage of anomalies 10  AUC: 0.9978  
+ Run 8:[0.9954573295322197, 0.9963537476269612, 0.9978777142860036, 0.9979669667217471, 0.9978005906416775]
+Percentage of anomalies 2  AUC: 0.9992  
+Percentage of anomalies 4  AUC: 0.9971  
+Percentage of anomalies 6  AUC: 0.9982  
+Percentage of anomalies 8  AUC: 0.9977  
+Percentage of anomalies 10  AUC: 0.9979  
+ Run 9:[0.9992495534614871, 0.9971315253766319, 0.9981664053115015, 0.997695255457468, 0.9978576164508718]
+Percentage of anomalies 2  AUC: 0.9909  
+Percentage of anomalies 4  AUC: 0.9953  
+Percentage of anomalies 6  AUC: 0.9956  
+Percentage of anomalies 8  AUC: 0.9955  
+Percentage of anomalies 10  AUC: 0.9967  
+ Run 10:[0.9909427677105381, 0.9952704241117647, 0.9955837326760306, 0.9954936234312527, 0.996665807539042]
+Mean at Point 1 : Mean  0.994115  Std 0.002899
+Mean at Point 2 : Mean  0.995752  Std 0.001952
+Mean at Point 3 : Mean  0.996348  Std 0.001956
+Mean at Point 4 : Mean  0.996359  Std 0.002236
+Mean at Point 5 : Mean  0.996522  Std 0.002091

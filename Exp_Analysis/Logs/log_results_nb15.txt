@@ -79,3 +79,81 @@ Mean at Point 2 : Mean  0.742765  Std 0.050603
 Mean at Point 3 : Mean  0.755693  Std 0.048384
 Mean at Point 4 : Mean  0.760982  Std 0.046739
 Mean at Point 5 : Mean  0.765485  Std 0.045483
+Log start :: 2020-08-28 23:09:40.744727
+2020-08-28 23:09:40.744906| Time stamp 1598670580.744912
+nb15
+Log start :: 2020-08-28 23:15:32.412323
+2020-08-28 23:15:32.412450| Time stamp 1598670932.412456
+nb15
+Percentage of anomalies 2  AUC: 0.6851  
+Percentage of anomalies 4  AUC: 0.7175  
+Percentage of anomalies 6  AUC: 0.7542  
+Percentage of anomalies 8  AUC: 0.7733  
+Log start :: 2020-08-29 08:44:47.429850
+2020-08-29 08:44:47.429969| Time stamp 1598705087.4299748
+nb15
+Percentage of anomalies 2  AUC: 0.7269  
+Percentage of anomalies 4  AUC: 0.7617  
+Percentage of anomalies 6  AUC: 0.7622  
+Percentage of anomalies 8  AUC: 0.7673  
+Percentage of anomalies 10  AUC: 0.7799  
+ Run 1:[0.7268552453667176, 0.7617463154795118, 0.7622067874764774, 0.7672640736973521, 0.7798820438131224]
+Percentage of anomalies 2  AUC: 0.7187  
+Percentage of anomalies 4  AUC: 0.7491  
+Percentage of anomalies 6  AUC: 0.7666  
+Percentage of anomalies 8  AUC: 0.7785  
+Percentage of anomalies 10  AUC: 0.7872  
+ Run 2:[0.718730013231855, 0.749067187256312, 0.766605742839351, 0.7785430607659342, 0.7871780059877669]
+Percentage of anomalies 2  AUC: 0.7362  
+Percentage of anomalies 4  AUC: 0.7675  
+Percentage of anomalies 6  AUC: 0.7719  
+Percentage of anomalies 8  AUC: 0.7840  
+Percentage of anomalies 10  AUC: 0.7873  
+ Run 3:[0.7361807383484384, 0.7674626512175803, 0.7718827339520838, 0.78402553724149, 0.78727601856059]
+Percentage of anomalies 2  AUC: 0.7263  
+Percentage of anomalies 4  AUC: 0.7547  
+Percentage of anomalies 6  AUC: 0.7667  
+Percentage of anomalies 8  AUC: 0.7774  
+Percentage of anomalies 10  AUC: 0.7857  
+ Run 4:[0.7263197961980817, 0.7546518981775542, 0.7666770087285824, 0.7774418015745698, 0.7857316082902333]
+Percentage of anomalies 2  AUC: 0.7276  
+Percentage of anomalies 4  AUC: 0.7606  
+Percentage of anomalies 6  AUC: 0.7800  
+Percentage of anomalies 8  AUC: 0.7829  
+Percentage of anomalies 10  AUC: 0.7905  
+ Run 5:[0.7275762509203714, 0.7605618188331197, 0.780020048056966, 0.7828753090235521, 0.7905371204536246]
+Percentage of anomalies 2  AUC: 0.7710  
+Percentage of anomalies 4  AUC: 0.7938  
+Percentage of anomalies 6  AUC: 0.7938  
+Percentage of anomalies 8  AUC: 0.7952  
+Percentage of anomalies 10  AUC: 0.8052  
+ Run 6:[0.7709716829665412, 0.7938192382273537, 0.7937618413719387, 0.795226416837244, 0.8051603614882852]
+Percentage of anomalies 2  AUC: 0.7292  
+Percentage of anomalies 4  AUC: 0.7618  
+Percentage of anomalies 6  AUC: 0.7795  
+Percentage of anomalies 8  AUC: 0.7788  
+Percentage of anomalies 10  AUC: 0.7854  
+ Run 7:[0.729225557219529, 0.7618091153361595, 0.779458598226228, 0.778849355649557, 0.7854015241795672]
+Percentage of anomalies 2  AUC: 0.7417  
+Percentage of anomalies 4  AUC: 0.7513  
+Percentage of anomalies 6  AUC: 0.7715  
+Percentage of anomalies 8  AUC: 0.7786  
+Percentage of anomalies 10  AUC: 0.7917  
+ Run 8:[0.7416524804425062, 0.7513434689869214, 0.7715492708003266, 0.7786269379561346, 0.7917497322576671]
+Percentage of anomalies 2  AUC: 0.7428  
+Percentage of anomalies 4  AUC: 0.7575  
+Percentage of anomalies 6  AUC: 0.7815  
+Percentage of anomalies 8  AUC: 0.7911  
+Percentage of anomalies 10  AUC: 0.7941  
+ Run 9:[0.7427537475581586, 0.7575107177468092, 0.7815131464858726, 0.791134404834186, 0.7940506073214854]
+Percentage of anomalies 2  AUC: 0.7695  
+Percentage of anomalies 4  AUC: 0.7552  
+Percentage of anomalies 6  AUC: 0.7866  
+Percentage of anomalies 8  AUC: 0.7876  
+Percentage of anomalies 10  AUC: 0.7951  
+ Run 10:[0.7695253030951542, 0.755242878823415, 0.7865689252044881, 0.7876165037110009, 0.7950991803042695]
+Mean at Point 1 : Mean  0.738979  Std 0.017112
+Mean at Point 2 : Mean  0.761322  Std 0.012002
+Mean at Point 3 : Mean  0.776024  Std 0.009423
+Mean at Point 4 : Mean  0.782160  Std 0.007521
+Mean at Point 5 : Mean  0.790207  Std 0.006575
