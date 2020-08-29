@@ -128,7 +128,7 @@ nsl_kdd:
       activation: 'none'
   encoder_real_xform:
     dims:
-      - 12
+      - 16
     activation: 'tanh'
   decoder_FC_from_latent:
     dims:
