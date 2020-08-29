@@ -1,5 +1,5 @@
 kddcup:
-  ae_latent_dimension: 8
+  ae_latent_dimension: 16
   encoder_FCN_to_latent:
     dims:
       - 64
@@ -56,7 +56,7 @@ kddcup:
   anomaly_ratio : 0.2
 
 nb15:
-  ae_latent_dimension: 8
+  ae_latent_dimension: 12
   encoder_FCN_to_latent:
     dims:
       - 48
@@ -126,7 +126,7 @@ nsl_kdd:
       activation: 'none'
   encoder_real_xform:
     dims:
-      - 12
+      - 16
     activation: 'tanh'
   decoder_FC_from_latent:
     dims:
@@ -222,7 +222,7 @@ gureKDD:
   
 
 kddcup_neptune:
-  ae_latent_dimension: 8
+  ae_latent_dimension: 16
   encoder_FCN_to_latent:
     dims:
       - 64
