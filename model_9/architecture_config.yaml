@@ -222,7 +222,7 @@ gureKDD:
   
 
 kddcup_neptune:
-  ae_latent_dimension: 8
+  ae_latent_dimension: 16
   encoder_FCN_to_latent:
     dims:
       - 64
@@ -276,4 +276,4 @@ kddcup_neptune:
   max_gamma: 10
   fc_dropout : 0.1
   ae_dropout : 0.2
-  anomaly_ratio : 0.1
+  anomaly_ratio : 0.2
