@@ -27,9 +27,9 @@ try:
 except:
     from .data_fetcher import data_fetcher
 try:
-    from model_7.model import model_6_v2_container as Model
+    from model_9.model import model_9_container as Model
 except:
-    from .model_7.model import model_6_v2_container as Model
+    from .model_9.model import model_9_container as Model
 
 try:
     from model_6 import utils as utils
@@ -189,7 +189,6 @@ def execute_run(DATA_SET):
     return auc_list
 
 # ==========================================================
-
 parser = argparse.ArgumentParser(description='Run the model ')
 parser.add_argument(
     '--DATA_SET',
