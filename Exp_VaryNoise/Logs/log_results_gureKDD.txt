@@ -56,3 +56,6 @@ gureKDD
  Run 7: auPR with noise : 0.799194 | without noise 0.714108 
  Run 8: auPR with noise : 0.818593 | without noise 0.662266 
  Run 9: auPR with noise : 0.717183 | without noise 0.702588 
+ Run 10: auPR with noise : 0.735664 | without noise 0.671159 
+ Run 11: auPR with noise : 0.728038 | without noise 0.672081 
+Mean AuPR over  10 runs with noise 0.766195 without noise Std 0.694322

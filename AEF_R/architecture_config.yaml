@@ -54,7 +54,7 @@ kddcup:
   fc_dropout: 0.1
   ae_dropout: 0.2
   anomaly_ratio : 0.2
-  epochs: 75
+  epochs: 50
 
 nb15:
   ae_latent_dimension: 8
@@ -111,7 +111,7 @@ nb15:
   max_gamma: 10
   fc_dropout: 0.1
   ae_dropout: 0.2
-  epochs: 75
+  epochs: 50
 
 nsl_kdd:
   ae_latent_dimension: 8
@@ -168,7 +168,7 @@ nsl_kdd:
   fc_dropout: 0.1
   ae_dropout: 0.2
   anomaly_ratio : 0.1
-  epochs: 75
+  epochs: 50
 
 gureKDD:
   ae_latent_dimension: 12
@@ -221,7 +221,7 @@ gureKDD:
   fc_dropout : 0.1
   ae_dropout : 0.2
   anomaly_ratio : 0.1
-  epochs: 75
+  epochs: 50
 
 kddcup_neptune:
   ae_latent_dimension: 8
@@ -279,4 +279,4 @@ kddcup_neptune:
   fc_dropout : 0.1
   ae_dropout : 0.2
   anomaly_ratio : 0.2
-  epochs: 75
+  epochs: 50
