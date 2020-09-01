@@ -267,7 +267,7 @@ for n in range(1,num_runs+1):
         include_noise=False
     )
     results.append([mean_aupr1,mean_aupr2])
-    LOGGER.info(' Run {}: auPR with noise : {:4f} | without noise {:4f} '.format(n+1, mean_aupr1, mean_aupr2))
+    LOGGER.info(' Run {}: auPR with noise : {:4f} | without noise {:4f} '.format(n, mean_aupr1, mean_aupr2))
 
 results = np.array(results)
 print('Details: ', results)
