@@ -47,7 +47,7 @@ kddcup:
   discrete_loss_func: 'categorical_crossentropy'
   burn_in_epochs: 50
   phase_2_epochs: 10
-  phase_3_epochs: 15
+  phase_3_epochs: 20
   batch_size: 256
   LR: 0.0005
   max_gamma: 10
@@ -112,7 +112,7 @@ nb15:
   ae_dropout: 0.2
 
 nsl_kdd:
-  ae_latent_dimension: 8
+  ae_latent_dimension: 12
   encoder_FCN_to_latent:
     dims:
       - 32
@@ -158,8 +158,8 @@ nsl_kdd:
   real_loss_func: 'smooth_l1'
   discrete_loss_func: 'categorical_crossentropy'
   burn_in_epochs: 50
-  phase_2_epochs: 15
-  phase_3_epochs: 20
+  phase_2_epochs: 10
+  phase_3_epochs: 25
   batch_size: 256
   LR: 0.0005
   max_gamma: 10
