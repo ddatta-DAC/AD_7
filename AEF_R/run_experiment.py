@@ -109,7 +109,7 @@ def execute_run(DATA_SET):
         labels = [1 for _ in range(x1.shape[0])] + [0 for _ in range(x2.shape[0])]
         _scores = np.concatenate([x1_scores, x2_scores], axis=0)
         for i, j in zip(_scores, labels):
-            res_data.append((i[0], j))
+            res_data.append((i, j))
 
         res_df = pd.DataFrame(res_data, columns=['score', 'label'])
         res_df = res_df.sort_values(by=['score'], ascending=False)
