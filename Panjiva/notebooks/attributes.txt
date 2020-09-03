@@ -1,0 +1,13 @@
+PanjivaRecordID
+ConsigneePanjivaID
+ShipperPanjivaID
+Carrier
+ShipmentOrigin
+ShipmentDestination
+PortOfUnlading
+PortOfLading
+HSCode
+VolumeTEU
+Quantity
+WeightKg
+ValueOfGoodsUSD
