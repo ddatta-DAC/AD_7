@@ -348,6 +348,10 @@ class model_9(nn.Module):
         )
         self.ae_module = self.ae_module.to(self.device)
         self.ae_loss_module = AE_loss_module(self.device, loss_structure_config)
+        if torch.cuda.device_count() > 1:
+            print("Let's use", torch.cuda.device_count(), "GPUs!")
+            self.ae_loss_module = nn.DataParallel(self.ae_loss_module,device_ids=[0, 1, 2, 3])
+            
         self.ae_loss_module = self.ae_loss_module.to(self.device)
 
         self.num_fields = len(encoder_structure_config['discrete_dims']) + 1
@@ -556,20 +560,21 @@ class model_9_container():
             num_batches = X_pos.shape[0] // bs + 1
             idx = np.arange(X_pos.shape[0])
             np.random.shuffle(idx)
-            X_P = X_pos[idx]
-            X_N = X_neg[idx]
+#             X_pos = X_pos[idx]
+#             X_neg = X_neg[idx]
 
-            X_P = FT(X_P).to(self.device)
-            X_N = FT(X_N).to(self.device)
+#             X_P = FT(X_P).to(self.device)
+#             X_N = FT(X_N).to(self.device)
             b_epoch_losses_phase_3 = []
             for b in range(num_batches):
 
                 # self.network_module.zero_grad()
                 self.optimizer.zero_grad()
-
-                _x_p = X_P[b * bs: (b + 1) * bs]
-                _x_n = X_N[b * bs: (b + 1) * bs]
-
+                _idx = idx[b * bs: (b + 1) * bs]
+                _x_p = X_pos[_idx]
+                _x_n = X_neg[_idx]
+                _x_p = FT(_x_p).to(self.device)
+                _x_n = FT(_x_n).to(self.device)
                 # Positive sample
                 batch_loss_pos, sample_score_pos = self.network_module(_x_p, sample_type='pos')
                 batch_loss_neg = []
