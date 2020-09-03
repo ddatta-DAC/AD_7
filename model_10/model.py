@@ -500,7 +500,7 @@ class model_10_container():
         self.network_module.mode = 'train'
         learning_rate = self.LR
 
-        parameters = list(self.network_module.parameters())
+        parameters = list(self.network_module.ae_module.parameters())
         self.optimizer_1 = torch.optim.Adam(
             parameters,
             lr=learning_rate
