@@ -5,9 +5,7 @@ from datetime import datetime
 import os
 from pathlib import Path
 
-def get_logger(DIR=None):
-
-    global LOG_FILE
+def get_logger(LOG_FILE, DIR=None):
     logger = logging.getLogger('main')
     logger.setLevel(logging.INFO)
     if DIR is not None:

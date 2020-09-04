@@ -92,7 +92,7 @@ args = parser.parse_args()
 DATA_SET = args.DATA_SET
 num_runs = args.num_runs
 LOG_FILE = 'log_results_{}.txt'.format(DATA_SET)
-LOGGER = logger_utils.get_logger('OCSVM')
+LOGGER = logger_utils.get_logger(LOG_FILE,'OCSVM')
 DATA_SET(LOGGER)
 
 LOGGER.info(DATA_SET)
