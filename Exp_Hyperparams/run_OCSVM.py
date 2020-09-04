@@ -16,6 +16,7 @@ from tqdm import tqdm
 import torch
 from pprint import pprint
 from collections import OrderedDict
+from joblib import Parallel,delayed
 
 try:
     from eval import eval
@@ -70,6 +71,17 @@ def test_eval(model_obj, data_dict, num_anomaly_sets):
     print(' AUC std', np.std(auc_list))
     return _mean, _std
 
+
+def execute(DATA_SET, nu, id ,anom_perc, num_anomaly_sets ):
+    data_dict, _ = data_fetcher.get_data(
+        DATA_SET,
+        set_id=id,
+        num_anom_sets=num_anomaly_sets,
+        anomaly_perc=anom_perc
+    )
+    model_obj = train_model(data_dict, nu)
+    mean_aupr, std = test_eval(model_obj, data_dict, num_anomaly_sets)
+    return (mean_aupr, std)
 # ==============================================================
 parser = argparse.ArgumentParser(description='Run the model ')
 parser.add_argument(
@@ -86,6 +98,8 @@ parser.add_argument(
     default=1,
     help='Number of runs'
 )
+
+
 
 # =========================================
 args = parser.parse_args()
@@ -106,23 +120,18 @@ anom_perc = 100 * anomaly_ratio/(1+anomaly_ratio)
 nu_values = np.arange(0.1,0.5+0.1,0.10)
 nu_vs_auc = []
 for nu in nu_values:
-    results = []
+
     LOGGER.info('Setting nu :: {}'.format(nu))
-    for n in range(1,num_runs+1):
-        data_dict, _ = data_fetcher.get_data(
-            DATA_SET,
-            set_id = n,
-            num_anom_sets=num_anomaly_sets,
-            anomaly_perc=anom_perc
-        )
-        model_obj = train_model(data_dict, nu)
-        mean_aupr, std = test_eval(model_obj, data_dict, num_anomaly_sets)
-        results.append(mean_aupr)
-        LOGGER.info(' Run {}: Mean: {:4f} | Std {:4f}'.format(n,mean_aupr,std))
-        mean_all_runs = np.mean(results)
-        print('Mean AuPR over {} runs {:4f}'.format(num_runs, mean_all_runs))
-        print('Details: ', results)
-        nu_vs_auc.append((nu, mean_all_runs))
+    _res_ = Parallel(n_jobs=num_runs)(delayed(execute)(
+        DATA_SET, nu, id, anom_perc, num_anomaly_sets ) for id in range(1,num_runs+1)
+    )
+    results = np.array(_res_)
+    mean_all_runs = np.mean(results[:,0])
+    _std = np.std(results[:,0])
+    LOGGER.info(' Runs {}: Mean: {:4f} | Std {:4f}'.format(num_runs, mean_all_runs, _std))
+    print('Mean AuPR over {} runs {:4f}'.format(num_runs, mean_all_runs))
+    print('Details: ', results[:,0])
+    nu_vs_auc.append((nu, mean_all_runs))
 
 nu_vs_auc = np.array(nu_vs_auc)
 LOGGER.info('nu vs AuPR '+ str(nu_vs_auc[:,0]), str(nu_vs_auc[:,1]))
