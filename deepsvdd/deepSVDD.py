@@ -15,7 +15,6 @@ except:
     from networks.AE import FC_dec
     from networks.AE import FC_enc
 
-
 try:
     from networks.main import build_network
 except:
@@ -26,10 +25,10 @@ try:
 except:
     from .optim.deepSVDD_trainer import DeepSVDDTrainer
 
-try:
-    from optim.ae_trainer import AETrainer
-except:
-    from .optim.ae_trainer import AETrainer
+# try:
+#     from optim.ae_trainer import AETrainer
+# except:
+#     from .optim.ae_trainer import AETrainer
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print('Device ::', DEVICE)
