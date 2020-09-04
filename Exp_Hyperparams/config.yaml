@@ -1,3 +1,13 @@
-'kddcup':
+kddcup:
   anomaly_ratio : 0.2
   num_anomaly_sets: 5
+  dsvdd:
+    layer_dims:
+      - 64
+      - 32
+      - 16
+    num_epochs: 100
+    ae_epochs: 250
+    batch_size: 256
+    warm_up_epochs: 20
+    LR: 0.001

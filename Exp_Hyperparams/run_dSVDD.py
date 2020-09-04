@@ -1,22 +1,24 @@
-#!/usr/bin/env python
-# coding: utf-8
-import pandas as pd
-import numpy as np
-import sys
-import os
-sys.path.append('./..')
-sys.path.append('./../..')
-import pandas as pd
-import yaml
-from torch import FloatTensor as FT
-import numpy as np
-import matplotlib.pyplot as plt
-import math
-from tqdm import tqdm
 import torch
-from pprint import pprint
-from collections import OrderedDict
-from joblib import Parallel,delayed
+import random
+import numpy as np
+import os
+import sys
+import pandas as pd
+sys.path.append('../../.')
+sys.path.append('../')
+import yaml
+from tqdm import tqdm
+import argparse
+from joblib import Parallel, delayed
+
+try:
+    from deepsvdd.networks.AE import FC_dec
+    from deepsvdd.networks.AE import FC_enc
+    from deepsvdd.deepSVDD import DeepSVDD
+except:
+    from .deepsvdd.networks.AE import FC_dec
+    from .deepsvdd.networks.AE import FC_enc
+    from .deepsvdd.deepSVDD import DeepSVDD
 
 try:
     from eval import eval
@@ -27,31 +29,49 @@ try:
 except:
     import logger_utils
 try:
-    from data_fetcher_v2 import data_fetcher
-except:
     from .data_fetcher_v2 import data_fetcher
-import argparse
-from pathlib import Path
-import yaml
-from sklearn.metrics import auc
-from sklearn.svm import OneClassSVM as OCSVM
+except:
+    from data_fetcher_v2 import data_fetcher
+
+
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print('Device ::', DEVICE)
 
 def train_model(
         data_dict,
-        nu
-    ):
-    model_obj = OCSVM(
-        kernel='rbf',
-        nu = nu,
-        gamma='auto',
-        shrinking=True,
-        cache_size=1000,
-        verbose=True,
-        max_iter=-1
-    )
+        config,
+        objective='soft-boundary',
+        nu = 0.01
+):
+    global DEVICE
+    layer_dims = config['layer_dims']
+    LR = config['LR']
+    num_epochs = config['num_epochs']
+    batch_size = config['batch_size']
+    warm_up_epochs = config['warm_up_epochs']
+    ae_epochs = config['ae_epochs']
     train_X = data_dict['train']
-    model_obj.fit(train_X)
-    return model_obj
+    fc_layer_dims = [train_X.shape[1]] + list(layer_dims)
+
+    # Initialize DeepSVDD model and set neural network \phi
+    deep_SVDD = DeepSVDD(
+        DEVICE,
+        objective=objective,
+        nu = nu
+    )
+    deep_SVDD.set_network(fc_layer_dims)
+
+    # Train model on dataset
+    deep_SVDD.train(
+        train_X,
+        LR = LR,
+        num_epochs = num_epochs,
+        batch_size= batch_size,
+        ae_epochs = ae_epochs,
+        warm_up_epochs=warm_up_epochs
+    )
+    return deep_SVDD
+
 
 def test_eval(model_obj, data_dict, num_anomaly_sets):
     test_X = data_dict['test']
@@ -71,17 +91,18 @@ def test_eval(model_obj, data_dict, num_anomaly_sets):
     return _mean, _std
 
 
-def execute(DATA_SET, nu, id ,anom_perc, num_anomaly_sets ):
+
+def execute(DATA_SET, nu, objective,  id , config, anom_perc, num_anomaly_sets ):
     data_dict, _ = data_fetcher.get_data(
         DATA_SET,
         set_id=id,
         num_anom_sets=num_anomaly_sets,
         anomaly_perc=anom_perc
     )
-    model_obj = train_model(data_dict, nu)
+    model_obj = train_model(data_dict, config = config, nu=nu, objective = objective)
     mean_aupr, std = test_eval(model_obj, data_dict, num_anomaly_sets)
     return (mean_aupr, std)
-# ==============================================================
+
 parser = argparse.ArgumentParser(description='Run the model ')
 parser.add_argument(
     '--DATA_SET',
@@ -98,31 +119,31 @@ parser.add_argument(
     help='Number of runs'
 )
 
-
-
 # =========================================
 args = parser.parse_args()
 DATA_SET = args.DATA_SET
 num_runs = args.num_runs
 LOG_FILE = 'log_results_{}.txt'.format(DATA_SET)
-LOGGER = logger_utils.get_logger(LOG_FILE,'OCSVM')
-
+LOGGER = logger_utils.get_logger(LOG_FILE,'deepSVDD')
 LOGGER.info(DATA_SET)
 config_file = 'config.yaml'
+
 with open(config_file, 'r') as fh:
     config = yaml.safe_load(fh)
 
 num_anomaly_sets = config[DATA_SET]['num_anomaly_sets']
 anomaly_ratio = config[DATA_SET]['anomaly_ratio']
-
 anom_perc = 100 * anomaly_ratio/(1+anomaly_ratio)
-nu_values = np.arange(0.1,0.5+0.1,0.10)
+step = 0.025
+nu_values = np.arange(0.025,0.2+step,step)
 nu_vs_auc = []
-for nu in nu_values:
+objective = 'one-class'
 
+model_config = config[DATA_SET]
+for nu in nu_values:
     LOGGER.info('Setting nu :: {}'.format(nu))
     _res_ = Parallel(n_jobs=num_runs)(delayed(execute)(
-        DATA_SET, nu, id, anom_perc, num_anomaly_sets ) for id in range(1,num_runs+1)
+        DATA_SET, nu, objective, id, model_config, anom_perc, num_anomaly_sets ) for id in range(1,num_runs+1)
     )
     results = np.array(_res_)
     mean_all_runs = np.mean(results[:,0])
@@ -133,6 +154,5 @@ for nu in nu_values:
     nu_vs_auc.append((nu, mean_all_runs))
 
 nu_vs_auc = np.array(nu_vs_auc)
-LOGGER.info('nu vs AuPR '+ str(nu_vs_auc[:,0]) +  str(nu_vs_auc[:,1]))
+LOGGER.info('nu vs AuPR '+ str(nu_vs_auc[:,0]) + str(nu_vs_auc[:,1]))
 logger_utils.close_logger(LOGGER)
-
