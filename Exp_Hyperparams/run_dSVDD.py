@@ -160,7 +160,7 @@ nu_values = np.arange(0.025,0.2+step,step)
 nu_vs_auc = []
 objective = 'one-class'
 
-model_config = config[DATA_SET]
+model_config = config[DATA_SET]['dsvdd']
 for nu in nu_values:
     LOGGER.info('Setting nu :: {}'.format(nu))
     _res_ = Parallel(n_jobs=num_runs)(delayed(execute)(
