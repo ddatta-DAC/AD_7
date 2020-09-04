@@ -45,6 +45,7 @@ def train_model(
     model_obj = OCSVM(
         kernel='rbf',
         nu = nu,
+        gamma='auto',
         shrinking=True,
         cache_size=1000,
         verbose=True,
@@ -87,6 +88,7 @@ parser = argparse.ArgumentParser(description='Run the model ')
 parser.add_argument(
     '--DATA_SET',
     type=str,
+
     help=' Which data set ?',
     default='kddcup',
     choices=['kddcup', 'kddcup_neptune', 'nsl_kdd', 'nb15','gureKDD']
