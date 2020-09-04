@@ -14,6 +14,11 @@ import argparse
 from joblib import Parallel, delayed
 
 try:
+    from .deepsvdd import deepsvdd as deepsvdd
+except:
+    import deepsvdd as deepsvdd
+
+try:
     from .deepsvdd  import base
 except:
     from deepsvdd import base
@@ -91,13 +96,13 @@ def train_model(
 
 def test_eval(model_obj, data_dict, num_anomaly_sets):
     test_X = data_dict['test']
-    test_scores = model_obj.score_samples(test_X)
+    test_scores = model_obj.test(test_X)
     auc_list = []
     for idx in range(num_anomaly_sets):
         key = 'anom_' + str(idx + 1)
         anom_X = data_dict[key]
-        anom_scores = model_obj.score_samples(anom_X)
-        auPR = eval.eval(anom_scores, test_scores, order='ascending')
+        anom_scores = model_obj.test(anom_X)
+        auPR = eval.eval(anom_scores, test_scores, order='descending')
         auc_list.append(auPR)
         print("AUC : {:0.4f} ".format(auPR))
     _mean = np.mean(auc_list)
