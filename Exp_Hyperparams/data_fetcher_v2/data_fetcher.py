@@ -20,7 +20,7 @@ def get_data(
         num_anom_sets=5,
         data_sparse=False
 ):
-    DATA_LOC = './../{}/processed_sets/set_{}'.format(data_set,str(set_id))
+    DATA_LOC = './{}/processed_sets/set_{}'.format(data_set,str(set_id))
     if not os.path.exists(DATA_LOC):
         print('ERROR :', DATA_LOC)
         exit(1)
