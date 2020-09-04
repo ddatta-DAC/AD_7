@@ -115,7 +115,7 @@ for nu in nu_values:
             num_anom_sets=num_anomaly_sets,
             anomaly_perc=anom_perc
         )
-        model_obj = train_model(DATA_SET, data_dict, config)
+        model_obj = train_model(data_dict, nu)
         mean_aupr, std = test_eval(model_obj, data_dict, num_anomaly_sets)
         results.append(mean_aupr)
         LOGGER.info(' Run {}: Mean: {:4f} | Std {:4f}'.format(n,mean_aupr,std))
