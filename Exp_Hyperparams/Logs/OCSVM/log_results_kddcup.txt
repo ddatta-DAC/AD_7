@@ -1,0 +1,12 @@
+Log start :: 2020-09-04 17:04:50.177222
+kddcup
+Setting nu :: 0.1
+ Runs 5: Mean: 0.991029 | Std 0.001346
+Setting nu :: 0.2
+ Runs 5: Mean: 0.990127 | Std 0.001036
+Setting nu :: 0.3
+ Runs 5: Mean: 0.872182 | Std 0.013960
+Setting nu :: 0.4
+ Runs 5: Mean: 0.766998 | Std 0.005911
+Setting nu :: 0.5
+ Runs 5: Mean: 0.764192 | Std 0.003957
