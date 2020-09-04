@@ -4,6 +4,7 @@ import numpy as np
 import os
 import sys
 import pandas as pd
+sys.path.append('../../../.')
 sys.path.append('../../.')
 sys.path.append('../')
 import yaml
@@ -12,13 +13,13 @@ import argparse
 from joblib import Parallel, delayed
 
 try:
+    from .deepsvdd.networks.AE import FC_dec
+    from .deepsvdd..AE import FC_enc
+    from .deepsvdd.deepSVDD import DeepSVDD
+except:
     from deepsvdd.networks.AE import FC_dec
     from deepsvdd.networks.AE import FC_enc
     from deepsvdd.deepSVDD import DeepSVDD
-except:
-    from .deepsvdd.networks.AE import FC_dec
-    from .deepsvdd.networks.AE import FC_enc
-    from .deepsvdd.deepSVDD import DeepSVDD
 
 try:
     from eval import eval
