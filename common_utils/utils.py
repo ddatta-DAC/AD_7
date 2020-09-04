@@ -10,7 +10,7 @@ def save_csv(df, file_path):
     df.to_csv(file_path, index=False)
     _size = os.stat(file_path).st_size / (1024*1024)
     print('Size {:.3f}', _size, ' MB ')
-    max_size = 99
+    max_size = 40
     
     if _size > max_size :
         os.remove(file_path)
