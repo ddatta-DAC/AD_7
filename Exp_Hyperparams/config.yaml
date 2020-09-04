@@ -1,0 +1,3 @@
+'kddcup':
+  anomaly_ratio : 0.2
+  num_anomaly_sets: 5
