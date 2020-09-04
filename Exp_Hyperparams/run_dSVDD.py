@@ -7,11 +7,26 @@ import pandas as pd
 sys.path.append('../../../.')
 sys.path.append('../../.')
 sys.path.append('../')
+
 import yaml
 from tqdm import tqdm
 import argparse
 from joblib import Parallel, delayed
 
+try:
+    from .deepsvdd  import base
+except:
+    from deepsvdd import base
+try:
+    from .deepsvdd  import optim
+except:
+    from deepsvdd import optim
+    
+try:
+    from .deepsvdd import *
+except:
+    from deepsvdd import *
+    
 try:
     from .deepsvdd.networks.AE import FC_dec
     from .deepsvdd.AE import FC_enc
