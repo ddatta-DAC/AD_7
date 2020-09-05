@@ -11,3 +11,11 @@ kddcup:
     batch_size: 256
     warm_up_epochs: 20
     LR: 0.001
+  dcn:
+    layer_dims:
+      - 64
+      - 34
+      - 16
+    epochs_1: 15
+    epochs_2: 25
+    batch_size: 512
