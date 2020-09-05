@@ -175,7 +175,7 @@ anom_perc = 100 * anomaly_ratio/(1+anomaly_ratio)
 step = 0.025
 nu_values = np.arange(0.025,0.2+step,step)
 nu_vs_auc = []
-objective = 'one-class'
+objective = args.objective
 
 if anom_perc is None:
     anom_perc = 100 * anomaly_ratio/(1+anomaly_ratio)
