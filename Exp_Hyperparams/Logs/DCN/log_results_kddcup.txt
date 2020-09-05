@@ -1,0 +1,25 @@
+Log start :: 2020-09-04 20:18:07.772104
+kddcup
+Log start :: 2020-09-04 20:20:41.772595
+kddcup
+Setting K :: 1
+Log start :: 2020-09-04 21:08:20.333085
+kddcup
+Setting K :: 1
+ Runs 5: Mean: 0.672973 | Std 0.136576
+Setting K :: 2
+ Runs 5: Mean: 0.905590 | Std 0.089962
+Setting K :: 3
+ Runs 5: Mean: 0.821996 | Std 0.152040
+Setting K :: 4
+ Runs 5: Mean: 0.913501 | Std 0.081897
+Setting K :: 5
+Log start :: 2020-09-05 05:37:48.066354
+kddcup
+Setting K :: 5
+Log start :: 2020-09-05 07:08:30.796613
+kddcup
+Setting K :: 5
+Log start :: 2020-09-05 09:20:42.724671
+kddcup
+Setting K :: 5
