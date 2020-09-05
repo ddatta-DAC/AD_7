@@ -140,6 +140,22 @@ parser.add_argument(
     help='Number of runs'
 )
 
+parser.add_argument(
+    '--anom_perc',
+    type=int,
+    help='Percentage of anomalies',
+    default=None
+)
+
+parser.add_argument(
+    '--objective',
+    type=str,
+    default = 'one-class',
+    help='objective',
+    choices=['one-class', 'soft-boundary']
+)
+
+
 # =========================================
 args = parser.parse_args()
 DATA_SET = args.DATA_SET
@@ -148,6 +164,7 @@ LOG_FILE = 'log_results_{}.txt'.format(DATA_SET)
 LOGGER = logger_utils.get_logger(LOG_FILE,'deepSVDD')
 LOGGER.info(DATA_SET)
 config_file = 'config.yaml'
+anom_perc = args.anom_perc
 
 with open(config_file, 'r') as fh:
     config = yaml.safe_load(fh)
@@ -160,6 +177,10 @@ nu_values = np.arange(0.025,0.2+step,step)
 nu_vs_auc = []
 objective = 'one-class'
 
+if anom_perc is None:
+    anom_perc = 100 * anomaly_ratio/(1+anomaly_ratio)
+LOGGER.info(' Setting anomaly percentage to {} %'.format(anom_perc))
+LOGGER.info(' Settingobjective to {} '.format(objective))
 model_config = config[DATA_SET]['dsvdd']
 for nu in nu_values:
     LOGGER.info('Setting nu :: {}'.format(nu))
