@@ -92,6 +92,14 @@ parser.add_argument(
 )
 
 parser.add_argument(
+    '--anom_perc',
+    type=int,
+    help='Percentage of anomalies',
+    default=None
+)
+
+
+parser.add_argument(
     '--num_runs',
     type=int,
     default=1,
@@ -106,6 +114,7 @@ DATA_SET = args.DATA_SET
 num_runs = args.num_runs
 LOG_FILE = 'log_results_{}.txt'.format(DATA_SET)
 LOGGER = logger_utils.get_logger(LOG_FILE,'OCSVM')
+anom_perc = args.anom_perc
 
 LOGGER.info(DATA_SET)
 config_file = 'config.yaml'
@@ -114,8 +123,9 @@ with open(config_file, 'r') as fh:
 
 num_anomaly_sets = config[DATA_SET]['num_anomaly_sets']
 anomaly_ratio = config[DATA_SET]['anomaly_ratio']
-
-anom_perc = 100 * anomaly_ratio/(1+anomaly_ratio)
+if anom_perc is None:
+    anom_perc = 100 * anomaly_ratio/(1+anomaly_ratio)
+LOGGER.info(' Setting anomaly percentage to {} %'.format(anom_perc))
 nu_values = np.arange(0.1,0.5+0.1,0.10)
 nu_vs_auc = []
 for nu in nu_values:
