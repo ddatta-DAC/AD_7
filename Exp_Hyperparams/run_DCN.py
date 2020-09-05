@@ -84,7 +84,7 @@ def test_eval(model_obj, data_dict, num_anomaly_sets):
         key = 'anom_' + str(idx + 1)
         anom_X = data_dict[key]
         anom_scores = model_obj.score_samples(anom_X)
-        auPR = eval.eval(anom_scores, test_scores, order='ascending')
+        auPR = eval.eval(anom_scores, test_scores, order='descending')
         auc_list.append(auPR)
         print("AUC : {:0.4f} ".format(auPR))
     _mean = np.mean(auc_list)
