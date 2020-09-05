@@ -36,7 +36,7 @@ except:
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print('Device ::', DEVICE)
-
+GPU_COUNT = torch.cuda.device_count()
 
 import argparse
 from pathlib import Path
@@ -47,9 +47,13 @@ from sklearn.svm import OneClassSVM as OCSVM
 def train_model(
         data_dict,
         config,
-        K
+        K, 
+        id
     ):
     global DEVICE
+    global GPU_COUNT
+    _DEVICE = torch.device("cuda:{}".format(id%GPU_COUNT))
+    print(' Device -> ', _DEVICE)
     data_dim = data_dict['train'].shape[1]
     layer_dims = config['layer_dims']
     epochs_1 = config['epochs_1']
@@ -57,7 +61,7 @@ def train_model(
     batch_size = config['batch_size']
     layer_dims = config['layer_dims']
     model_obj = DCN(
-        DEVICE,
+        _DEVICE,
         data_dim,
         layer_dims,  # Provide the half (encoder only)
         op_activation='sigmoid',
@@ -105,7 +109,8 @@ def execute(DATA_SET, id, K, config, anom_perc, num_anomaly_sets ):
     model_obj = train_model(
         data_dict,
         config,
-        K
+        K, 
+        id
     )
     mean_aupr, std = test_eval(model_obj, data_dict, num_anomaly_sets)
     return (mean_aupr, std)
@@ -145,7 +150,7 @@ model_config = config[DATA_SET]['dcn']
 
 anom_perc = 100 * anomaly_ratio/(1+anomaly_ratio)
 step=1
-K_values = np.arange(1,10+step,step)
+K_values = np.arange(5,10+step,step)
 K_vs_auc = []
 for K in K_values:
     K = int(K)
