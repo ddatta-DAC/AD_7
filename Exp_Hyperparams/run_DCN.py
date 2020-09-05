@@ -149,7 +149,7 @@ K_values = np.arange(1,10+step,step)
 nu_vs_auc = []
 for K in K_values:
     K = int(K)
-    LOGGER.info('Setting nu :: {}'.format(nu))
+    LOGGER.info('Setting K :: {}'.format(K))
     _res_ = Parallel(n_jobs=num_runs)(delayed(execute)(
         DATA_SET, id, K, model_config, anom_perc, num_anomaly_sets ) for id in range(1,num_runs+1)
     )
@@ -160,7 +160,7 @@ for K in K_values:
     LOGGER.info(' Runs {}: Mean: {:4f} | Std {:4f}'.format(num_runs, mean_all_runs, _std))
     print('Mean AuPR over {} runs {:4f}'.format(num_runs, mean_all_runs))
     print('Details: ', results[:,0])
-    nu_vs_auc.append((nu, mean_all_runs))
+    nu_vs_auc.append((K, mean_all_runs))
 
 nu_vs_auc = np.array(nu_vs_auc)
 LOGGER.info('nu vs AuPR '+ str(nu_vs_auc[:,0]) +  str(nu_vs_auc[:,1]))
