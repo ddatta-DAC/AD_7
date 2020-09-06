@@ -50,7 +50,7 @@ def create_config(
     encoder_structure_config = {}
     encoder_structure_config['num_discrete'] = data_dim
     encoder_structure_config['num_real'] = 0
-
+    encoder_structure_config['discrete_column_dims'] = []
     encoder_structure_config['encoder_layers'] = {
         'activation': config['encoder_layers']['activation'],
         'layer_dims': config['encoder_layers']['layer_dims'] + [latent_dim]
