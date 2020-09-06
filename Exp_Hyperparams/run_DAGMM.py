@@ -240,7 +240,7 @@ def test_eval(
 
     for idx in range(1, num_anom_sets + 1):
         key = 'anom_' + str(idx)
-        anom_X = data_dict[key].values
+        anom_X = data_dict[key]
         anom_energy = []
         num_batches = anom_X.shape[0] // batch_size + 1
         for b in range(num_batches):
