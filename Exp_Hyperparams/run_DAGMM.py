@@ -146,7 +146,7 @@ def get_model_obj(
         id
 ):
     global GPU_COUNT
-    _DEVICE = torch.device("cuda:{}".format(id % GPU_COUNT))
+    _DEVICE = torch.device("cuda:0")
     batch_size = model_config['batch_size']
     num_epochs = model_config['num_epochs']
     train_X = data_dict['train']
@@ -228,12 +228,23 @@ parser.add_argument(
     default=10,
     help='Number of runs'
 )
+parser.add_argument(
+    '--num_jobs',
+    type=int,
+    default=-1,
+    help='Number of runs'
+)
 
 # =========================================
 
 args = parser.parse_args()
 DATA_SET = args.DATA_SET
 num_runs = args.num_runs
+num_jobs = args.num_jobs
+
+if num_jobs == -1:
+    num_jobs = num_runs
+
 LOG_FILE = 'log_results_{}.txt'.format(DATA_SET)
 LOGGER = logger_utils.get_logger(LOG_FILE,'DAGMM')
 
@@ -253,7 +264,7 @@ K_vs_auc = []
 for K in K_values:
     K = int(K)
     LOGGER.info('Setting K :: {}'.format(K))
-    _res_ = Parallel(n_jobs=num_runs)(delayed(execute)(
+    _res_ = Parallel(n_jobs=num_jobs)(delayed(execute)(
         DATA_SET, id, K, model_config, anom_perc, num_anomaly_sets ) for id in range(1,num_runs+1)
     )
 
