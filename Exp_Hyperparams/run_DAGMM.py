@@ -143,10 +143,9 @@ def get_model_obj(
         data_dict,
         model_config,
         K,
-        id
+        _DEVICE
 ):
-    global GPU_COUNT
-    _DEVICE = torch.device("cuda:0")
+
     batch_size = model_config['batch_size']
     num_epochs = model_config['num_epochs']
     train_X = data_dict['train']
@@ -176,25 +175,103 @@ def get_model_obj(
     )
     return dagmm_obj
 
-def test_eval(model_obj, data_dict, num_anomaly_sets):
+def test_eval(
+    dagmm_obj,
+    data_dict,
+    num_anom_sets,
+    _DEVICE
+):
+    dagmm_obj.eval()
+    N = 0
+    mu_sum = 0
+    cov_sum = 0
+    gamma_sum = 0
+
+    train_X = data_dict['train']
+    batch_size = 507
+    num_batches = train_X.shape[0] // batch_size + 1
+    for b in range(num_batches):
+        input_data = train_X[b * batch_size: (b + 1) * batch_size]
+        input_data = FT(input_data).to(_DEVICE)
+        enc, dec, z, gamma = dagmm_obj(input_data)
+        phi, mu, cov = dagmm_obj.compute_gmm_params(z, gamma)
+        batch_gamma_sum = torch.sum(gamma, dim=0)
+        gamma_sum += batch_gamma_sum
+        mu_sum += mu * batch_gamma_sum.unsqueeze(-1)  # keep sums of the numerator only
+        cov_sum += cov * batch_gamma_sum.unsqueeze(-1).unsqueeze(-1)  # keep sums of the numerator only
+        N += input_data.size(0)
+
+    train_phi = gamma_sum / N
+    train_mu = mu_sum / gamma_sum.unsqueeze(-1)
+    train_cov = cov_sum / gamma_sum.unsqueeze(-1).unsqueeze(-1)
+
+    print("N:", N)
+    print("phi :", train_phi)
+    print("mu : ", train_mu)
+    print("covariance :", train_cov)
+
+    # ============================ #
+    # Get sample energy for test set
+    # ============================ #
+    test_energy = []
+
     test_X = data_dict['test']
-    test_scores = model_obj.score_samples(test_X)
+    num_batches = test_X.shape[0] // batch_size + 1
+    print('Size of test ', test_X.shape[0])
+    for b in range(num_batches):
+        input_data = test_X[b * batch_size: (b + 1) * batch_size]
+        input_data = FT(input_data).to(_DEVICE)
+        enc, dec, z, gamma = dagmm_obj(input_data)
+        sample_energy, cov_diag = dagmm_obj.compute_energy(
+            z,
+            phi=train_phi,
+            mu=train_mu,
+            cov=train_cov,
+            size_average=False
+        )
+        test_energy.append(sample_energy.data.cpu().numpy())
+
+    test_energy = np.concatenate(test_energy, axis=0)
+    print('test_energy', test_energy.shape)
     auc_list = []
-    for idx in range(num_anomaly_sets):
-        key = 'anom_' + str(idx + 1)
-        anom_X = data_dict[key]
-        anom_scores = model_obj.score_samples(anom_X)
-        auPR = eval.eval(anom_scores, test_scores, order='descending')
+    # ===========
+    # Get per sample energy of the anomalies
+    # ===========
+
+    for idx in range(1, num_anom_sets + 1):
+        key = 'anom_' + str(idx)
+        anom_X = data_dict[key].values
+        anom_energy = []
+        num_batches = anom_X.shape[0] // batch_size + 1
+        for b in range(num_batches):
+            input_data = anom_X[b * batch_size: (b + 1) * batch_size]
+            input_data = FT(input_data).to(_DEVICE)
+            enc, dec, z, gamma = dagmm_obj(input_data)
+            sample_energy, cov_diag = dagmm_obj.compute_energy(
+                z,
+                phi=train_phi,
+                mu=train_mu,
+                cov=train_cov,
+                size_average=False
+            )
+            anom_energy.append(sample_energy.data.cpu().numpy())
+
+        anom_energy = np.concatenate(anom_energy, axis=0)
+        auPR = eval.eval(anom_energy, test_energy, order='descending')
         auc_list.append(auPR)
         print("AUC : {:0.4f} ".format(auPR))
+
     _mean = np.mean(auc_list)
     _std = np.std(auc_list)
     print(' Mean AUC ', np.mean(auc_list))
     print(' AUC std', np.std(auc_list))
-    return _mean, _std
+    return (_mean, _std)
+
+
 
 def execute(DATA_SET, id, K, model_config, anom_perc, num_anomaly_sets ):
-
+    global GPU_COUNT
+    _DEVICE = torch.device("cuda:0")
     data_dict, _ = data_fetcher.get_data(
         DATA_SET,
         set_id=id,
@@ -206,10 +283,10 @@ def execute(DATA_SET, id, K, model_config, anom_perc, num_anomaly_sets ):
         data_dict,
         model_config,
         K,
-        id
+        _DEVICE
     )
 
-    mean_aupr, std = test_eval(model_obj, data_dict, num_anomaly_sets)
+    mean_aupr, std = test_eval(model_obj, data_dict, num_anomaly_sets, _DEVICE)
     return (mean_aupr, std)
 
 # ==============================================================
