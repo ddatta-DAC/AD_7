@@ -10,3 +10,17 @@ Setting nu :: 0.4
  Runs 5: Mean: 0.766998 | Std 0.005911
 Setting nu :: 0.5
  Runs 5: Mean: 0.764192 | Std 0.003957
+Log start :: 2020-09-04 21:12:27.034888
+kddcup
+ Setting anomaly percentage to 5 %
+Setting nu :: 0.1
+ Runs 5: Mean: 0.978230 | Std 0.004240
+Setting nu :: 0.2
+ Runs 5: Mean: 0.976040 | Std 0.004218
+Setting nu :: 0.30000000000000004
+ Runs 5: Mean: 0.685223 | Std 0.020800
+Setting nu :: 0.4
+ Runs 5: Mean: 0.556151 | Std 0.005637
+Setting nu :: 0.5
+ Runs 5: Mean: 0.546746 | Std 0.005586
+nu vs AuPR [0.1 0.2 0.3 0.4 0.5][0.97822993 0.97604033 0.68522277 0.55615096 0.54674615]

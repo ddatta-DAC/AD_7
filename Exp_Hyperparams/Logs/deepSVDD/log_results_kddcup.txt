@@ -1,0 +1,44 @@
+Log start :: 2020-09-04 19:17:20.962710
+kddcup
+Setting nu :: 0.025
+ Runs 5: Mean: 0.617263 | Std 0.075951
+Setting nu :: 0.05
+ Runs 5: Mean: 0.513590 | Std 0.094035
+Setting nu :: 0.075
+ Runs 5: Mean: 0.579422 | Std 0.080205
+Setting nu :: 0.1
+ Runs 5: Mean: 0.635841 | Std 0.044649
+Setting nu :: 0.125
+ Runs 5: Mean: 0.608816 | Std 0.141748
+Setting nu :: 0.15
+ Runs 5: Mean: 0.719894 | Std 0.150255
+Setting nu :: 0.175
+ Runs 5: Mean: 0.598793 | Std 0.058886
+Setting nu :: 0.2
+ Runs 5: Mean: 0.619542 | Std 0.053875
+nu vs AuPR [0.025 0.05  0.075 0.1   0.125 0.15  0.175 0.2  ][0.61726327 0.51359034 0.57942231 0.63584065 0.60881631 0.71989362
+ 0.59879297 0.61954225]
+ one-class 
+Setting nu :: 0.025
+Log start :: 2020-09-04 22:45:34.435495
+kddcup
+ Setting anomaly percentage to 16.666666666666668 %
+ Settingobjective to soft-boundary 
+Setting nu :: 0.025
+ Runs 5: Mean: 0.535624 | Std 0.091366
+Setting nu :: 0.05
+ Runs 5: Mean: 0.646743 | Std 0.083385
+Setting nu :: 0.07500000000000001
+ Runs 5: Mean: 0.805948 | Std 0.102468
+Setting nu :: 0.1
+ Runs 5: Mean: 0.641793 | Std 0.146070
+Setting nu :: 0.125
+ Runs 5: Mean: 0.658420 | Std 0.109744
+Setting nu :: 0.15
+ Runs 5: Mean: 0.671953 | Std 0.115124
+Setting nu :: 0.17500000000000002
+ Runs 5: Mean: 0.662214 | Std 0.126213
+Setting nu :: 0.2
+ Runs 5: Mean: 0.654499 | Std 0.111508
+nu vs AuPR [0.025 0.05  0.075 0.1   0.125 0.15  0.175 0.2  ][0.53562419 0.64674316 0.805948   0.64179259 0.65842032 0.67195305
+ 0.66221376 0.65449877]
