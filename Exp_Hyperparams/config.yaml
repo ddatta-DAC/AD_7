@@ -19,3 +19,26 @@ kddcup:
     epochs_1: 15
     epochs_2: 25
     batch_size: 512
+  dagmm:
+    encoder_layers:
+      activation: 'tanh'
+      layer_dims:
+        - 60
+        - 30
+        - 10
+      ae_latent_dimension: 1
+      decoder_layers:
+        activation: 'tanh'
+        layer_dims:
+          - 10
+          - 30
+          - 60
+      gmm:
+        num_components: 2
+        FC_layer:
+          dims:
+            - 10
+          activation: 'tanh'
+        FC_dropout: 0.5
+    num_epochs: 400
+    batch_size: 1024
