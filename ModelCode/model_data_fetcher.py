@@ -95,8 +95,8 @@ def fetch_model_data(
         neg = neg.todense()
         neg_x = np.reshape(neg, [data_len, num_neg_samples, -1])
 
-    data_dict['neg'] = neg
-    return pos_x, neg_x, data_dict, meta_data
+    data_dict['neg'] = neg_x
+    return pos_x, neg_x, data_dict
 
 
 
