@@ -201,7 +201,7 @@ parser.add_argument(
 parser.add_argument(
     '--num_runs',
     type=int,
-    default=10,
+    default=1,
     help='Number of runs'
 )
 

@@ -16,10 +16,7 @@ import logging.handlers
 from time import time
 from datetime import datetime
 
-# ----
-# First one normal
-# Second one anomalies
-# ----
+
 
 # ==================================
 # Obtain logger
@@ -65,7 +62,6 @@ def create_config(
     # Should return :
     # data_dict
     # meta_data_df [column, dimension]
-
     config_file = 'architecture_config.yaml'
 
     with open(config_file, 'r') as fh:
@@ -87,7 +83,7 @@ def create_config(
         else:
             count_discrete_dims += val
 
-    real_dims = len(data_dict['train'].columns) - count_discrete_dims
+    real_dims = data_dict['train'].shape[1] - count_discrete_dims
 
     # ---------------
     # encoder_structure_config['ip_layers']
