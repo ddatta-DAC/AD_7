@@ -94,7 +94,6 @@ def aux_gen(
     onehot_xformed = onehot_xformed.astype(np.int)
     print('>>> 1-0 part ', onehot_xformed.shape)
     samples = np.concatenate([onehot_xformed, samples_real_part], axis=1)
-
     pos = samples[0]
     neg = samples[1:]
     return pos, neg
