@@ -26,24 +26,51 @@ from joblib import delayed,Parallel
 from tqdm import tqdm
 from collections import OrderedDict
 import numpy as np
+from scipy import sparse
 
 def fetch_model_data(
         data_set,
+        set_id =1,
         num_neg_samples=10,
         anomaly_ratio = 0.1,
         num_anom_sets = 5
 ):
     # Save files
-    save_dir = 'model_use_Data/' + data_set
+    
+    save_dir = './' + data_set
     path_obj = Path(save_dir)
     path_obj.mkdir(
         exist_ok=True, parents=True
     )
-    pos_file_path = os.path.join(save_dir, 'pos_samples.csv')
-    neg_file_path = os.path.join(save_dir, 'neg_samples.csv')
-    pos_files_dir = os.path.join(save_dir, 'pos_samples')
-    neg_files_dir = os.path.join(save_dir, 'neg_samples')
     
+    # ------------------
+    # If negative samples do not exist , generate them
+    # ------------------
+    
+    LOC = os.path.join('./{}/processed_sets/set_{}'.format(data_set,set_id)
+    neg_samples_fname = 'neg_samples.npz'
+    neg_file_path = os.path.join(LOC ,neg_samples_fname)
+    
+  
+    d_df = pd.read_csv(
+        os.path.join('./{}/processed_sets/'.format(data_set),'data_dimensions.csv'),
+        index=None
+    )
+    cat_domains = {k:v for k,v in zip(list(d_df['column']),list(d_df['dimension']))
+                    
+                
+    if not os.path.exists(neg_file_path):
+        # train_df is not oh encoded 
+        train_df = pd.read_csv(os.path.join(LOC ,'train_data.csv'))               
+        pos, neg = neg_sample_gen.generate_pos_neg_data(
+                train_df,
+                cat_domain_dims,
+                num_samples=num_neg_samples
+        )
+        neg = sparse.csr_matrix()
+    else:
+        
+        
     df_dict, meta_data = data_fetcher.get_data (
                 data_set,
                 one_hot=False,

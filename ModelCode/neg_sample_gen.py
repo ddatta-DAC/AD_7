@@ -140,12 +140,6 @@ def generate_pos_neg_data(
     ) for i, row in tqdm(train_df.iterrows(), total=train_df.shape[0])
                            )
 
-    #     res = []
-    #     for i,row in tqdm(train_df.iterrows(), total=train_df.shape[0]):
-    #         r = aux_gen(
-    #             row, discrete_dim_list, num_real, column_encoder , num_samples
-    #         )
-    #         res.append(r)
 
     pos = []
     neg = []
@@ -155,6 +149,5 @@ def generate_pos_neg_data(
 
     pos = np.array(pos)
     neg = np.array(neg)
-    # print(pos.shape)
-    # print(neg.shape)
+
     return pos, neg
