@@ -59,10 +59,9 @@ def fetch_model_data(
 
     d_df = pd.read_csv(
         os.path.join('./{}/processed_sets/'.format(data_set),'data_dimensions.csv'),
-        index=None
+        index_col=None
     )
     meta_data = d_df
-
     data_dict = {}
     data_dict['train'] = train_data
     data_dict['test'] = test_data

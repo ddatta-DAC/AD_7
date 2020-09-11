@@ -135,11 +135,9 @@ def generate_pos_neg_data(
     n_jobs = multiprocessing.cpu_count()
 
     res = Parallel(n_jobs)(delayed(aux_gen)(
-        row, discrete_dim_list, num_real, column_encoder, num_samples
-    ) for i, row in tqdm(train_df.iterrows(), total=train_df.shape[0])
-                           )
-
-
+            row, discrete_dim_list, num_real, column_encoder, num_samples
+        ) for i, row in tqdm(train_df.iterrows(), total=train_df.shape[0])
+    )
     pos = []
     neg = []
     for r in res:
@@ -148,5 +146,5 @@ def generate_pos_neg_data(
 
     pos = np.array(pos)
     neg = np.array(neg)
-
+    print(pos.shape, neg.shape)
     return pos, neg
