@@ -270,7 +270,7 @@ def test_eval(
     F1 = np.mean(F1_list)
 
     print(' >> Mean P,R,F1 {:4f} {:4f} {:4f}'.format(P,R,F1))
-    return (P,R,F1)
+    return P,R,F1
 
 
 
@@ -291,8 +291,8 @@ def execute(DATA_SET, id, K, model_config, anom_perc, num_anomaly_sets ):
         _DEVICE
     )
 
-    mean_aupr, std = test_eval(model_obj, data_dict, num_anomaly_sets, _DEVICE)
-    return (mean_aupr, std)
+    P,R,F1 = test_eval(model_obj, data_dict, num_anomaly_sets, _DEVICE)
+    return (P,R,F1)
 
 # ==============================================================
 parser = argparse.ArgumentParser(description='Run the model ')
@@ -340,7 +340,8 @@ anomaly_ratio = config[DATA_SET]['anomaly_ratio']
 model_config = config[DATA_SET]['dagmm']
 
 anom_perc = 100 * anomaly_ratio/(1+anomaly_ratio)
-step=1
+print('Anomaly percentage ', anom_perc)
+
 K_values = [2,5]
 K_vs_f1 = []
 for K in K_values:

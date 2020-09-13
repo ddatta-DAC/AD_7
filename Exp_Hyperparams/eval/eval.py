@@ -73,7 +73,7 @@ def eval(anom_scores, test_scores, order='ascending'):
     return pr_auc
 
 
-def eval_PRF(anom_scores, test_scores, order='ascending', threshold=0.1):
+def eval_PRF(anom_scores, test_scores, order='ascending', threshold=0.2):
     anom_labels = [1 for _ in range(np.array(anom_scores).shape[0])]
     test_labels = [0 for _ in range(np.array(test_scores).shape[0])]
     num_anomalies = np.array(anom_scores).shape[0]
@@ -106,10 +106,12 @@ def eval_PRF(anom_scores, test_scores, order='ascending', threshold=0.1):
     # Select t-percentile of values
     # =======================
     t = np.percentile(res_df['score'].values, threshold)
+
+    sel = None
     if order == 'ascending':
-        sel = res_df.loc[res_df['score'] <= t]
+        sel = res_df.loc[res_df['score'] <= threshold]
     else:
-        sel = res_df.loc[res_df['score'] >= t]
+        sel = res_df.loc[res_df['score'] >= threshold]
 
     correct = sel.loc[sel['label'] == 1]
     P = len(correct) / len(sel)
