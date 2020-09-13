@@ -47,8 +47,8 @@ def fetch_model_data(
     test_data = sparse.load_npz(os.path.join(LOC, 'test.npz'))
     anom_data = sparse.load_npz(os.path.join(LOC, 'anom.npz'))
     train_data = train_data.todense()
-    test_data = test_data.todense()
-    anom_data = anom_data.todense()
+    test_data = np.array(test_data.todense())
+    anom_data = np.array(anom_data.todense())
     pos_x = train_data
     # ------------------
     # If negative samples do not exist , generate them
@@ -92,7 +92,8 @@ def fetch_model_data(
         neg_x = neg
     else:
         neg = sparse.load_npz(neg_file_path)
-        neg = neg.todense()
+        neg = np.array(neg.todense())
+        print(neg.shape)
         neg_x = np.reshape(neg, [data_len, num_neg_samples, -1])
 
     data_dict['neg'] = neg_x

@@ -18,6 +18,8 @@ import multiprocessing
 from pprint import pprint
 from time import time
 from datetime import datetime
+from joblib import Parallel,delayed
+
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # DEVICE = torch.device("cpu")
 print('Current device  >> ', DEVICE)
@@ -115,7 +117,7 @@ def execute_run(
     for idx in range(1, num_anomaly_sets + 1):
         key = 'anom_' + str(idx)
         test_anom_df = data_dict[key]
-        test_anom_X = test_anom_df.values
+        test_anom_X = test_anom_df
         x1 = test_norm_X
         x2 = test_anom_X
 
@@ -153,12 +155,10 @@ def execute_run(
         R = [0]
 
         while thresh <= _max + step:
-
             sel = res_df.loc[res_df['score'] <= thresh]
             if len(sel) == 0:
                 thresh += step
                 continue
-
             correct = sel.loc[sel['label'] == 0]
             prec = len(correct) / len(sel)
             rec = len(correct) / num_anomalies
@@ -185,7 +185,7 @@ def execute_run(
     _std = np.std(auc_list)
     print(' Mean AUC {:0.4f} '.format(_mean))
     print(' AUC std {:0.4f} '.format(_std))
-    return _mean,_std
+    return _mean,_std,set_id
 
 # ==========================================================
 
@@ -201,7 +201,7 @@ parser.add_argument(
 parser.add_argument(
     '--num_runs',
     type=int,
-    default=1,
+    default=10,
     help='Number of runs'
 )
 
@@ -214,14 +214,37 @@ LOGGER = utils.get_logger(LOG_FILE)
 utils.log_time(LOGGER)
 LOGGER.info(DATA_SET)
 results = []
-for n in range(1,num_runs+1):
-    mean_aupr, std = execute_run(DATA_SET)
-    results.append(mean_aupr)
-    LOGGER.info(' Run {}: Mean: {:4f} | Std {:4f}'.format(n,mean_aupr,std))
-mean_all_runs = np.mean(results)
-print('Mean AuPR over  {} runs {:4f}'.format(num_runs, mean_all_runs))
-print('Details: ', results)
 
-LOGGER.info('Mean AuPR over  {} runs {:4f} Std {:4f}'.format(num_runs, mean_all_runs, np.std(results)))
+for n in range(1,num_runs+1):
+    model_data_fetcher.fetch_model_data(
+        DATA_SET,
+        set_id=n,
+        num_anom_sets=5,
+        anomaly_ratio=0.2
+    )
+
+for n in range(1,num_runs+1):
+    mean_aupr, std , _id = execute_run(DATA_SET, n)
+    results.append(mean_aupr)
+    LOGGER.info(' Run {}: Mean: {:4f} | Std {:4f}'.format(n,mean_aupr,std))    
+mean_all_runs = np.mean(results)
+std_all_runs = np.std(results)
+
+# all_results = Parallel(n_jobs=5)(delayed(execute_run)(DATA_SET, n) for n in range(1,num_runs+1))
+# all_results = np.array(all_results)
+# for n in range(1,num_runs+1):
+#     mean_aupr = all_results[n-1][0] 
+#     std = all_results[n-1][1]
+#     _id = all_results[n-1][2]
+#     results.append(mean_aupr)
+#     LOGGER.info(' Run {}: Mean: {:4f} | Std {:4f}'.format(_id, mean_aupr, std))
+# mean_all_runs = np.mean(all_results[:,0])
+# std_all_runs = np.std(all_results[:,0])
+# results = all_results[:,0]
+
+print('Mean AuPR over  {} runs {:4f}'.format(num_runs, mean_all_runs))
+print('Details: ', str(results))
+
+LOGGER.info('Mean AuPR over  {} runs {:4f} Std {:4f}'.format(num_runs, mean_all_runs, std_all_runs))
 LOGGER.info(' Details ' + str(results))
 utils.close_logger(LOGGER)
