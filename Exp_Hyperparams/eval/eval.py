@@ -109,10 +109,10 @@ def eval_PRF(anom_scores, test_scores, order='ascending', threshold=0.2):
 
     sel = None
     if order == 'ascending':
-        t = np.percentile(res_df['score'].values, threshold)
+        t = np.percentile(res_df['score'].values, threshold*100)
         sel = res_df.loc[res_df['score'] <= t]
     else:
-        t = np.percentile(res_df['score'].values, 1 - threshold)
+        t = np.percentile(res_df['score'].values, 100 - threshold*100)
         sel = res_df.loc[res_df['score'] >= t]
 
     correct = sel.loc[sel['label'] == 1]
