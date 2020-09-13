@@ -25,10 +25,6 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print('Current device  >> ', DEVICE)
 # ===============================================
 try:
-    from . import data_fetcher
-except:
-    import data_fetcher
-try:
     from model import model_9_container as Model
 except:
     from .model import model_9_container as Model
@@ -45,7 +41,9 @@ except:
 
 def execute_run(
         DATA_SET,
-        set_id = 1):
+        set_id = 1,
+        show_figure = False
+):
     global LOGGER
     encoder_structure_config, decoder_structure_config, loss_structure_config, latent_dim = utils.create_config(DATA_SET)
     anomaly_ratio = -1
@@ -76,6 +74,7 @@ def execute_run(
 
     not_converged = True
 
+    # This is a simple check for convergence
     while not_converged:
         ae_model = Model(
             DATA_SET,
@@ -93,94 +92,17 @@ def execute_run(
             phase_2_epochs=phase_2_epochs,
             phase_3_epochs=phase_3_epochs
         )
-
-        print(ae_model.network_module)
-
+        print('Network architecture ', ae_model.network_module)
         _, epoch_losses_phase_3 = ae_model.train_model(
             pos,
             neg
         )
-        print(epoch_losses_phase_3)
+
         if epoch_losses_phase_3[-1] < epoch_losses_phase_3[0]:
             not_converged = False
-            
-        if DATA_SET == 'nb15' and epoch_losses_phase_3[-1] >= 0.1:
-            not_converged = True
 
-    test_norm_X = data_dict['test']
-    auc_list = []
     ae_model.mode = 'test'
-
-    def _normalize_(val, _min, _max):
-        return (val - _min) / (_max - _min)
-
-    for idx in range(1, num_anomaly_sets + 1):
-        key = 'anom_' + str(idx)
-        test_anom_df = data_dict[key]
-        test_anom_X = test_anom_df
-        x1 = test_norm_X
-        x2 = test_anom_X
-
-        x1_scores = ae_model.get_score(x1)
-        x2_scores = ae_model.get_score(x2)
-
-        res_data = []
-        labels = [1 for _ in range(x1.shape[0])] + [0 for _ in range(x2.shape[0])]
-        _scores = np.concatenate([x1_scores, x2_scores], axis=0)
-
-        for i, j in zip(_scores, labels):
-            res_data.append((i[0], j))
-
-        res_df = pd.DataFrame(res_data, columns=['score', 'label'])
-        res_df = res_df.sort_values(by=['score'], ascending=True)
-
-        _max = max(res_df['score'])
-        _min = min(res_df['score'])
-
-        res_df['score'] = res_df['score'].parallel_apply(
-            _normalize_,
-            args=(_min, _max,)
-        )
-        _max = max(res_df['score'])
-        _min = min(res_df['score'])
-
-        step = (_max - _min) / 100
-
-        # Vary the threshold
-        thresh = _min + step
-        thresh = round(thresh, 3)
-        num_anomalies = x2.shape[0]
-        print('Num anomalies', num_anomalies)
-        P = []
-        R = [0]
-
-        while thresh <= _max + step:
-            sel = res_df.loc[res_df['score'] <= thresh]
-            if len(sel) == 0:
-                thresh += step
-                continue
-            correct = sel.loc[sel['label'] == 0]
-            prec = len(correct) / len(sel)
-            rec = len(correct) / num_anomalies
-            P.append(prec)
-            R.append(rec)
-            thresh += step
-            thresh = round(thresh, 3)
-
-        P = [P[0]] + P
-        pr_auc = auc(R, P)
-        try:
-            plt.figure(figsize=[8, 6])
-            plt.plot(R, P)
-            plt.title('Precision Recall Curve  || auPR :' + "{:0.4f}".format(pr_auc), fontsize=15)
-            plt.xlabel('Recall', fontsize=15)
-            plt.ylabel('Precision', fontsize=15)
-            plt.show()
-        except:
-            pass
-        print("AUC : {:0.4f} ".format(pr_auc))
-        auc_list.append(pr_auc)
-
+    auc_list = utils.evaluate(ae_model,data_dict,num_anomaly_sets, show_figure)
     _mean = np.mean(auc_list)
     _std = np.std(auc_list)
     print(' Mean AUC {:0.4f} '.format(_mean))
@@ -190,12 +112,27 @@ def execute_run(
 # ==========================================================
 
 parser = argparse.ArgumentParser(description='Run the model ')
+
 parser.add_argument(
     '--DATA_SET',
     type=str,
     help=' Which data set ?',
-    default=None,
-    choices=['kddcup', 'kddcup_neptune', 'nsl_kdd', 'nb15', 'gureKDD']
+    default='kddcup',
+    choices=['kddcup']
+)
+
+parser.add_argument(
+    '--show_figure',
+    type=bool,
+    help=' Show AuPR curve ?',
+    default=False
+)
+
+parser.add_argument(
+    '--demo',
+    type=bool,
+    help=' Show AuPR curve ?',
+    default=True
 )
 
 parser.add_argument(
@@ -208,6 +145,12 @@ parser.add_argument(
 args = parser.parse_args()
 DATA_SET = args.DATA_SET
 num_runs = args.num_runs
+show_figure = args.show_figure
+demo = args.demo
+if demo:
+    num_runs = 1
+    show_figure = True
+
 LOG_FILE = 'log_results_{}.txt'.format(DATA_SET)
 LOGGER = utils.get_logger(LOG_FILE)
 
@@ -215,18 +158,15 @@ utils.log_time(LOGGER)
 LOGGER.info(DATA_SET)
 results = []
 
-for n in range(1,num_runs+1):
-    model_data_fetcher.fetch_model_data(
-        DATA_SET,
-        set_id=n,
-        num_anom_sets=5,
-        anomaly_ratio=0.2
-    )
+if num_runs > 1:
+    run_ids = range(1,num_runs+1)
+else:
+    run_ids = [np.random.randint(1,10+1)]
 
-for n in range(1,num_runs+1):
-    mean_aupr, std , _id = execute_run(DATA_SET, n)
+for n in run_ids:
+    mean_aupr, std , _id = execute_run(DATA_SET, n, show_figure)
     results.append(mean_aupr)
-    LOGGER.info(' Run {}: Mean: {:4f} | Std {:4f}'.format(n,mean_aupr,std))    
+    LOGGER.info('  Mean: {:4f} | Std {:4f}'.format( mean_aupr,std))
 mean_all_runs = np.mean(results)
 std_all_runs = np.std(results)
 

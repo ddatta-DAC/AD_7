@@ -7,14 +7,14 @@ import sys
 sys.path.append('./..')
 sys.path.append('./../..')
 
-try:
-    from data_fetcher import data_fetcher
-except:
-    from RP_1.data_fetcher import data_fetcher
-try:
-    from common_utils import utils
-except:
-    from RP_1.common_utils import utils
+# try:
+#     from data_fetcher import data_fetcher
+# except:
+#     from RP_1.data_fetcher import data_fetcher
+# try:
+#     from common_utils import utils
+# except:
+#     from RP_1.common_utils import utils
 try:
     from . import neg_sample_gen
 except:
