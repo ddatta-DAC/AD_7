@@ -288,9 +288,9 @@ class model_9(nn.Module):
         )
         self.ae_module = self.ae_module.to(self.device)
         self.ae_loss_module = AE_loss_module(self.device, loss_structure_config)
-        if torch.cuda.device_count() > 1:
-            print("Let's use", torch.cuda.device_count(), "GPUs!")
-            self.ae_loss_module = nn.DataParallel(self.ae_loss_module,device_ids=[0, 1, 2, 3])
+        # if torch.cuda.device_count() > 1:
+        #     print("Let's use", torch.cuda.device_count(), "GPUs!")
+        #     self.ae_loss_module = nn.DataParallel(self.ae_loss_module,device_ids=[0, 1, 2, 3])
             
         self.ae_loss_module = self.ae_loss_module.to(self.device)
 
