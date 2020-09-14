@@ -160,7 +160,10 @@ LOGGER.info(DATA_SET)
 results = []
 
 if num_runs > 1:
-    run_ids = range(1,num_runs+1)
+    if num_runs <= 10:
+        run_ids = np.random.choice(list(range(1, 10+1)), num_runs, replace=False)
+    else:
+        run_ids = np.random.choice(list(range(1, 10+1)), num_runs, replace=True)
 else:
     run_ids = [np.random.randint(1,10+1)]
 
