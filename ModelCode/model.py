@@ -8,10 +8,7 @@ from collections import OrderedDict
 import calendar
 import time
 import numpy as np
-from torch.autograd import Variable
 from tqdm import tqdm
-import matplotlib.pyplot as plt
-from torch.autograd import Variable
 from torch.distributions.normal import Normal
 import math
 from pathlib import Path
@@ -75,7 +72,7 @@ class AE_encoder(nn.Module):
                 conatenated_inp_dim += dim
 
         encoder_real_xform_dims = structure_config['encoder_real_xform']['dims']
-        
+
         if encoder_real_xform_dims is not None and len(encoder_real_xform_dims) > 0:
             _act = structure_config['encoder_real_xform']['activation']
             _layers = []
@@ -89,7 +86,7 @@ class AE_encoder(nn.Module):
         else:
             conatenated_inp_dim += self.real_dims
             self.input_x_form_layers.append(nn.Identity())
-        
+
         # ====
         # Put the concatenated (xformed) input through FCN
         # ====
@@ -113,8 +110,8 @@ class AE_encoder(nn.Module):
                 input_split_schema.append(1)
             else:
                 input_split_schema.append(val)
-        
-        self.input_split_schema = input_split_schema +  [self.real_dims]
+
+        self.input_split_schema = input_split_schema + [self.real_dims]
         print('split schema ', self.input_split_schema)
         return
 
@@ -148,7 +145,7 @@ class AE_decoder(nn.Module):
             # Handle Binary case
             if val == 2:
                 val = 1
-            total_op_dim +=val
+            total_op_dim += val
         total_op_dim += self.real_dims
         # =====================
         # IF no projection is wanted
@@ -173,8 +170,6 @@ class AE_decoder(nn.Module):
         self.FC_z = nn.Sequential(*_layers)
         # the output size is inp_dim
 
-
-
         return
 
     def forward(self, z):
@@ -192,7 +187,7 @@ class AE(nn.Module):
             encoder_structure_config,
             decoder_structure_config,
             latent_dim,
-            dropout = 0.25
+            dropout=0.25
     ):
         super(AE, self).__init__()
         self.device = device
@@ -230,16 +225,7 @@ class AE_loss_module(nn.Module):
         super(AE_loss_module, self).__init__()
         self.device = device
         self.structure_config = structure_config
-        # ===========
-        # config Format :
-        # decoder output dim , loss type , data type
-        # decoder output dim is the number of categories for onehot data
-        # ===========
-
-        # self.loss_FC = nn.Linear(num_fields, 1, bias=False)
-        print('Loss structure config', structure_config)
         self.discrete_dims = self.structure_config['discrete_dims']
-
         real_dims = self.structure_config['real_dims']
         split_schema = []
         for column, dim in self.discrete_dims.items():
@@ -247,7 +233,6 @@ class AE_loss_module(nn.Module):
                 dim = 1
             split_schema.append(dim)
         split_schema.append(real_dims)
-        print(' Loss module split schema ', split_schema)
         self.split_schema = split_schema
         self.real_dims = real_dims
         return
@@ -263,8 +248,7 @@ class AE_loss_module(nn.Module):
         return mse
 
 
-
-class model_9(nn.Module):
+class model_CHAD(nn.Module):
     def __init__(
             self,
             device,
@@ -274,9 +258,9 @@ class model_9(nn.Module):
             loss_structure_config,
             ae_dropout,
             fc_dropout,
-            include_noise = True
+            include_noise=True
     ):
-        super(model_9, self).__init__()
+        super(model_CHAD, self).__init__()
         self.device = device
         self.latent_dim = latent_dim
         self.ae_module = AE(
@@ -288,17 +272,13 @@ class model_9(nn.Module):
         )
         self.ae_module = self.ae_module.to(self.device)
         self.ae_loss_module = AE_loss_module(self.device, loss_structure_config)
-        # if torch.cuda.device_count() > 1:
-        #     print("Let's use", torch.cuda.device_count(), "GPUs!")
-        #     self.ae_loss_module = nn.DataParallel(self.ae_loss_module,device_ids=[0, 1, 2, 3])
-            
         self.ae_loss_module = self.ae_loss_module.to(self.device)
 
         self.num_fields = len(encoder_structure_config['discrete_dims']) + 1
         latent_dim = self.ae_module.encoder.ae_latent_dimension
 
         self.score_layer = nn.Sequential(
-            nn.Linear( latent_dim, latent_dim // 2),
+            nn.Linear(latent_dim, latent_dim // 2),
             nn.Dropout(fc_dropout),
             nn.Tanh(),
             nn.Linear(latent_dim // 2, 1),
@@ -333,27 +313,20 @@ class model_9(nn.Module):
         # Training mode
         # ================================================ #
         if self.mode == 'train':
-            # Return the per sample loss
             x_recon, z = self.ae_module(x)
             loss_md = self.ae_loss_module(
                 x_true=x,
                 x_pred=x_recon
             )
-            # loss_md (multidimensional)  has shape [ batch, num_fields ]
-            # Sample loss is sum of the loss pertaining to all the fields
             sample_loss = torch.sum(
                 loss_md,
                 dim=1,
                 keepdim=True
             ).to(self.device)
-
             # ==========
-            # If sample_type is neg:
-            # reduce 1/loss ; i.e. increase loss for negative values
             if sample_type == 'neg':
-                # sample_loss = torch.reciprocal(torch.log(sample_loss))
                 batch_size = x.shape[0]
-                if self.include_noise :
+                if self.include_noise:
                     r_noise = self.normal_noise_dist.sample(sample_shape=[batch_size]).to(self.device)
                     z = z + r_noise
 
@@ -374,7 +347,7 @@ class model_9(nn.Module):
 # Main class
 # ====================================================
 
-class model_9_container():
+class model_CHAD_container():
     def __init__(
             self,
             data_set,
@@ -389,11 +362,11 @@ class model_9_container():
             log_interval=100,
             ae_dropout=0.05,
             fc_dropout=0.05,
-            num_epochs =15,
-            burn_in_epochs = 5,
-            phase_2_epochs = 5,
-            phase_3_epochs = 5,
-            include_noise =True
+            num_epochs=15,
+            burn_in_epochs=5,
+            phase_2_epochs=5,
+            phase_3_epochs=5,
+            include_noise=True
     ):
         self.device = device
         self.data_set = data_set
@@ -411,9 +384,9 @@ class model_9_container():
         # Create the folder to place checkpoints in
         chkpt_path = Path(self.chkpt_folder)
         chkpt_path.mkdir(exist_ok=True, parents=True)
-        print('Sacving checkpoints to :: ',  self.chkpt_folder)
+        print('Sacving checkpoints to :: ', self.chkpt_folder)
 
-        self.network_module = model_9(
+        self.network_module = model_CHAD(
             device,
             latent_dim,
             encoder_structure_config,
@@ -461,7 +434,7 @@ class model_9_container():
         import pandas as pd
 
         df_phase_3_losses = pd.DataFrame(
-            columns = [ 'epoch', 'loss' ]
+            columns=['epoch', 'loss']
         )
 
         for epoch in tqdm(range(1, self.num_epochs + 1)):
@@ -474,11 +447,11 @@ class model_9_container():
             else:
                 epoch_phase = 3
 
-            if epoch_phase == 1 :
+            if epoch_phase == 1:
                 lambda_1 = 1
                 gamma = 1
                 lambda_2 = 1
-            elif epoch_phase == 2 :
+            elif epoch_phase == 2:
                 lambda_1 = np.exp(-t_start * (t - t_start) / t_start)
                 lambda_2 = 1
             elif epoch_phase == 3:
@@ -500,11 +473,11 @@ class model_9_container():
             num_batches = X_pos.shape[0] // bs + 1
             idx = np.arange(X_pos.shape[0])
             np.random.shuffle(idx)
-#             X_pos = X_pos[idx]
-#             X_neg = X_neg[idx]
+            #             X_pos = X_pos[idx]
+            #             X_neg = X_neg[idx]
 
-#             X_P = FT(X_P).to(self.device)
-#             X_N = FT(X_N).to(self.device)
+            #             X_P = FT(X_P).to(self.device)
+            #             X_N = FT(X_N).to(self.device)
             b_epoch_losses_phase_3 = []
             for b in range(num_batches):
 
@@ -604,8 +577,8 @@ class model_9_container():
 
                 epoch_losses.append(loss_value)
 
-            mean_epoch_loss =  np.mean(epoch_losses)
-            print('Epoch loss ::',mean_epoch_loss)
+            mean_epoch_loss = np.mean(epoch_losses)
+            print('Epoch loss ::', mean_epoch_loss)
 
             # ------------------
             # Save checkpoint
@@ -616,8 +589,8 @@ class model_9_container():
                 torch.save(self.network_module.state_dict(), _path)
                 df_phase_3_losses = df_phase_3_losses.append({
                     'epoch': epoch,
-                    'loss' : np.mean(b_epoch_losses_phase_3)
-                    }, ignore_index=True
+                    'loss': np.mean(b_epoch_losses_phase_3)
+                }, ignore_index=True
                 )
 
         # ===========
@@ -647,12 +620,12 @@ class model_9_container():
         # ----
         x = np.array(losses)
         idx_list = argrelextrema(x, np.less)[0][::-1]
-        print('[DEBUG]', [(i,j) for i,j in zip(epoch_num, losses)])
+        print('[DEBUG]', [(i, j) for i, j in zip(epoch_num, losses)])
         for idx in idx_list:
-            if x[idx-1] > x[idx] and x[idx-2] > x[idx] and x[idx-3] > x[idx]:
-                print( x[idx-3:idx+1])
+            if x[idx - 1] > x[idx] and x[idx - 2] > x[idx] and x[idx - 3] > x[idx]:
+                print(x[idx - 3:idx + 1])
                 target_epoch = epoch_num[idx]
-                print('Chosen index : {}; epoch -> {}'.format(idx,target_epoch))
+                print('Chosen index : {}; epoch -> {}'.format(idx, target_epoch))
                 return int(target_epoch)
 
         # If all else fails ; return the last one

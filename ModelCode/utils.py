@@ -4,10 +4,7 @@ import os
 sys.path.append('./..')
 sys.path.append('./../..')
 from collections import OrderedDict
-try:
-    from . import data_fetcher
-except:
-    import data_fetcher
+
 import yaml
 import matplotlib.pyplot  as plt
 from sklearn.metrics import auc

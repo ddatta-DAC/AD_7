@@ -25,9 +25,9 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print('Current device  >> ', DEVICE)
 # ===============================================
 try:
-    from model import model_9_container as Model
+    from .model import model_CHAD_container as Model
 except:
-    from .model import model_9_container as Model
+    from model import model_CHAD_container as Model
 
 try:
     from . import utils as utils
@@ -147,6 +147,7 @@ DATA_SET = args.DATA_SET
 num_runs = args.num_runs
 show_figure = args.show_figure
 demo = args.demo
+
 if demo:
     num_runs = 1
     show_figure = True
@@ -167,24 +168,11 @@ for n in run_ids:
     mean_aupr, std , _id = execute_run(DATA_SET, n, show_figure)
     results.append(mean_aupr)
     LOGGER.info('  Mean: {:4f} | Std {:4f}'.format( mean_aupr,std))
+
 mean_all_runs = np.mean(results)
 std_all_runs = np.std(results)
-
-# all_results = Parallel(n_jobs=5)(delayed(execute_run)(DATA_SET, n) for n in range(1,num_runs+1))
-# all_results = np.array(all_results)
-# for n in range(1,num_runs+1):
-#     mean_aupr = all_results[n-1][0] 
-#     std = all_results[n-1][1]
-#     _id = all_results[n-1][2]
-#     results.append(mean_aupr)
-#     LOGGER.info(' Run {}: Mean: {:4f} | Std {:4f}'.format(_id, mean_aupr, std))
-# mean_all_runs = np.mean(all_results[:,0])
-# std_all_runs = np.std(all_results[:,0])
-# results = all_results[:,0]
-
 print('Mean AuPR over  {} runs {:4f}'.format(num_runs, mean_all_runs))
 print('Details: ', str(results))
-
-LOGGER.info('Mean AuPR over  {} runs {:4f} Std {:4f}'.format(num_runs, mean_all_runs, std_all_runs))
+LOGGER.info('Mean AuPR over {} runs {:4f} Std {:4f}'.format(num_runs, mean_all_runs, std_all_runs))
 LOGGER.info(' Details ' + str(results))
 utils.close_logger(LOGGER)
