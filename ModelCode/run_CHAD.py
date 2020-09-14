@@ -137,8 +137,8 @@ parser.add_argument(
 parser.add_argument(
     '--demo',
     type=bool,
-    help=' Show AuPR curve ?',
-    default=True
+    help=' Run a demo (True|False)',
+    default=False
 )
 
 parser.add_argument(
