@@ -1,24 +1,32 @@
 import sys
-import os
-import pandas as pd
 import numpy as np
+if not sys.warnoptions:
+    import warnings
+    warnings.simplefilter("ignore")
+import warnings
+with warnings.catch_warnings():
+    warnings.simplefilter(action='ignore', category=FutureWarning)
 
 sys.path.append('./..')
 sys.path.append('./../..')
 import torch
-import math
+import argparse
 import yaml
-from sklearn.metrics import auc
+import os
+import pandas as pd
 from tqdm import tqdm
+import math
+from sklearn.metrics import auc
 from collections import OrderedDict
 from matplotlib import pyplot as plt
 from pathlib import Path
-import argparse
 import multiprocessing
 from pprint import pprint
 from time import time
 from datetime import datetime
 from joblib import Parallel,delayed
+
+
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # DEVICE = torch.device("cpu")
