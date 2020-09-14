@@ -63,7 +63,6 @@ def execute_run(
     anomaly_ratio = config['anomaly_ratio']
     LR = config['LR']
     max_gamma = config['max_gamma']
-
     num_anomaly_sets = 5
     pos, neg, data_dict = model_data_fetcher.fetch_model_data(
         DATA_SET,
@@ -73,7 +72,6 @@ def execute_run(
     )
 
     not_converged = True
-
     # This is a simple check for convergence
     while not_converged:
         ae_model = Model(
@@ -164,8 +162,10 @@ if num_runs > 1:
         run_ids = np.random.choice(list(range(1, 10+1)), num_runs, replace=False)
     else:
         run_ids = np.random.choice(list(range(1, 10+1)), num_runs, replace=True)
+
 else:
     run_ids = [np.random.randint(1,10+1)]
+    if demo: run_ids = [1]
 
 for n in run_ids:
     mean_aupr, std , _id = execute_run(DATA_SET, n, show_figure)
